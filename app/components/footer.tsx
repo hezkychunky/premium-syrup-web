@@ -3,10 +3,12 @@ import { Link } from "react-router";
 export default function Footer() {
   return (
     <>
-      <div className="min-h-32 bg-[theme(--color-secondary)]">
-        <div className="mx-6 pt-6 h-full border-t-[2px] border-gray-500">
-          <section className="absolute text-sm">
-            <h1 className="font-bold mb-3">PT. Karya Ciptanyata Wisesa</h1>
+      <div className="min-h-32">
+        <div className="flex flex-col sm:static mx-3 sm:mx-6 pt-3 sm:pt-6 h-full border-t-[2px] border-gray-500">
+          <section className="flex flex-col items-center mb-4 md:absolute text-sm">
+            <h1 className="font-bold mb-1 sm:mb-3">
+              PT. Karya Ciptanyata Wisesa
+            </h1>
             <p>Jl Tapak Raya No. 1A</p>
             <p>Tugurejo Semarang</p>
             <p>Jawa Tengah 50182</p>
@@ -41,7 +43,7 @@ export default function Footer() {
                 <img src="/icons/email.svg" alt="email" />
               </a>
             </div>
-            <div className="pt-5 text-xl font-light text-gray-500">
+            <div className="py-3 sm:py-5 text-sm lg:text-xl font-light text-gray-500">
               <p>Copyright © PT Karyanyata Cipta Wisesa</p>
             </div>
           </section>

@@ -26,97 +26,153 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed w-full h-32 flex flex-col items-center shadow-md z-50 transition-colors ease-in-out duration-700 ${
-          isScrolled
-            ? "bg-[theme(--color-primary)] text-[theme(--color-secondary)]"
-            : "bg-transparent"
+        className={`fixed w-full h-20 md:h-24 px-8 flex flex-col justify-center items-center shadow-md z-50 transition-colors ease-in-out duration-700 ${
+          isScrolled ? "bg-[theme(--color-secondary)]" : "bg-transparent"
         }`}
       >
-        {/* Top Section */}
-        <section className="flex justify-center items-center h-1/2 w-full">
-          <Link to={"/"}>
-            <img
-              src="logos/premium-logo-01.png"
-              alt="Premium Logo"
-              className="h-32 w-32"
-            />
-          </Link>
-          <div className="absolute flex gap-2 right-6">
-            <button>ID</button>
-            <button>EN</button>
-          </div>
-        </section>
-
         {/* Navigation Buttons */}
-        <section className="flex justify-center items-center h-1/2 w-full text-xl">
-          <div className="flex justify-evenly items-center w-4/5">
+        <section className="flex justify-center lg:justify-between items-center w-full text-lg lg:text-2xl overflow-hidden">
+          <section>
+            <Link to={"/"}>
+              <img
+                src="logos/premium-logo-01.png"
+                alt="Premium Logo"
+                className="h-32 w-32"
+              />
+            </Link>
+          </section>
+          <div className="hidden lg:flex font-sans justify-between items-center w-3/4 px-4">
             <button onClick={() => handleToggle("our-story")}>OUR STORY</button>
             <button onClick={() => handleToggle("products")}>PRODUCTS</button>
             <button onClick={() => handleToggle("recipes")}>RECIPES</button>
             <NavLink
               to={"/news"}
               className={({ isActive }) => (isActive ? "active" : "")}
+              viewTransition
             >
               NEWS
             </NavLink>
             <NavLink
               to={"/faq"}
               className={({ isActive }) => (isActive ? "active" : "")}
+              viewTransition
             >
               FAQ
             </NavLink>
             <NavLink
               to={"/contact-us"}
+              viewTransition
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               CONTACT US
             </NavLink>
           </div>
-          <button className="absolute h-6 w-6 right-6">
+          <button className="hidden lg:flex h-6 w-6">
             <img src="/icons/search-lens.svg" alt="Search" />
           </button>
         </section>
+        <button className="absolute lg:hidden flex flex-col gap-1 right-6">
+          <span className="w-5 border-1"></span>
+          <span className="w-5 border-1"></span>
+          <span className="w-5 border-1"></span>
+        </button>
       </nav>
 
       {/* Drawer Section */}
       <div
-        className={`fixed top-32 h-auto w-full bg-[theme(--color-primary)]  overflow-hidden ${
+        className={`fixed top-24 h-auto w-full text-xl bg-[theme(--color-primary)] text-[theme(--color-secondary)] overflow-hidden ${
           openDrawer
-            ? "max-h-1/3 opacity-100 py-4 transition-all duration-300 ease-in"
+            ? "max-h-1/3 opacity-100 py-2 transition-all duration-300 ease-in"
             : "max-h-0 py-0 transition-all duration-500 ease-out"
         }`}
       >
         {openDrawer === "our-story" && (
-          <div className="flex justify-center gap-24">
+          <div className="flex justify-center py-2 gap-24">
             <NavLink
-              to={"/not-applied"}
-              className="text-[theme(--color-secondary)]"
+              to={"/about-us"}
+              className={({ isActive }) => (isActive ? "font-extrabold" : "")}
             >
               ABOUT US
             </NavLink>
             <NavLink
-              to={"/not-applied"}
-              className="text-[theme(--color-secondary)]"
+              to={"/product-knowledge"}
+              className={({ isActive }) => (isActive ? "font-extrabold" : "")}
             >
               PRODUCT KNOWLEDGE
             </NavLink>
           </div>
         )}
         {openDrawer === "products" && (
-          <div className="flex flex-col">
-            <NavLink
-              to={"/not-applied"}
-              className="text-[theme(--color-secondary)] h-32"
-            >
-              Explore our product categories and new arrivals
-            </NavLink>
-          </div>
+          <ul className="flex items-center justify-between pl-8">
+            <li>
+              <NavLink to={"/not-applied"}>
+                <b className="block">ALL</b> PRODUCTS
+              </NavLink>
+            </li>
+            <li className="flex items-center w-44">
+              <div className="h-40 w-16 overflow-hidden">
+                <img
+                  src="products/grenadine.png"
+                  alt="Grenadine"
+                  className="h-40"
+                />
+              </div>
+              <NavLink to={"/not-applied"}>
+                <b className="block">FRUITY</b> DELIGHTS
+              </NavLink>
+            </li>
+            <li className="flex items-center w-44">
+              <div className="h-40 w-16">
+                <img
+                  src="products/caramel.png"
+                  alt="Grenadine"
+                  className="h-40"
+                />
+              </div>
+              <NavLink to={"/not-applied"}>
+                <b className="block">COFFEE</b> DELIGHTS
+              </NavLink>
+            </li>
+            <li className="flex items-center w-44">
+              <div className="h-40 w-16 ">
+                <img
+                  src="products/bubble-gum.png"
+                  alt="Grenadine"
+                  className="h-40"
+                />
+              </div>
+              <NavLink to={"/not-applied"}>
+                <b className="block">UNIQUE</b> DELIGHTS
+              </NavLink>
+            </li>
+            <li className="flex items-center w-44">
+              <div className="h-40 w-16 ">
+                <img
+                  src="products/grenadine.png"
+                  alt="Grenadine"
+                  className="h-40"
+                />
+              </div>
+              <NavLink to={"/not-applied"}>
+                <b className="block">60ml</b> PACK
+              </NavLink>
+            </li>
+            <li className="flex items-center w-44">
+              <div className="h-40 w-16 ">
+                <img
+                  src="products/grenadine.png"
+                  alt="Grenadine"
+                  className="h-40"
+                />
+              </div>
+              <NavLink to={"/not-applied"}>
+                <b className="block">100ml</b> PACK
+              </NavLink>
+            </li>
+          </ul>
         )}
         {openDrawer === "recipes" && (
-          <NavLink
-            to={"/not-applied"}
-            className="text-[theme(--color-secondary)]"
-          >
+          <NavLink to={"/not-applied"}>
             Discover delicious recipes made with our products
           </NavLink>
         )}

@@ -9,7 +9,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function News() {
   return (
-    <div className="min-h-screen flex flex-col items-center pt-36 bg-[theme(--color-secondary)] text-3xl font-light">
+    <div className="flex flex-grow flex-col items-center pt-36 text-3xl font-light">
       <h1>NEWS</h1>
     </div>
   );

@@ -36,8 +36,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Navbar />
-        {children}
-        {/* <Footer /> */}
+        <main className="min-h-screen flex flex-col bg-[theme(--color-secondary)]">
+          <div className="flex flex-col flex-grow">{children}</div>
+          <Footer />
+        </main>
         <ScrollRestoration />
         <Scripts />
       </body>

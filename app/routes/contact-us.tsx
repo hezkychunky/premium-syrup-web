@@ -9,7 +9,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function ContactUs() {
   return (
-    <div className="min-h-screen flex flex-col items-center pt-36 bg-[theme(--color-secondary)] text-3xl font-light">
+    <div className="flex flex-col flex-grow items-center pt-36 text-3xl font-light">
       <h1>CONTACT US</h1>
     </div>
   );
