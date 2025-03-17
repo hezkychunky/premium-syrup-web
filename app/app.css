@@ -20,6 +20,12 @@ a.active {
   text-underline-offset: 10px;
 }
 
+a.active-light {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
 b {
   font-weight: 700;
 }

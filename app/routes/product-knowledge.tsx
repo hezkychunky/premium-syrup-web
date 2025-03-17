@@ -1,3 +1,4 @@
+import TastesCard from "~/components/tastes-card";
 import type { Route } from "./+types/product-knowledge";
 
 export function meta({}: Route.MetaArgs) {
@@ -13,7 +14,37 @@ export default function ProductKnowledge() {
       <h1>
         KNOW OUR <b>3</b> TASTES
       </h1>
-      <section className="flex flex-col gap-8 text-2xl pr-32">
+      <section className="flex justify-evenly">
+        <TastesCard
+          preTitle="TROPICAL"
+          boldTitle="FRUIT"
+          postTitle="CREATIONS"
+          color="bg-red-800"
+          image="/products/grenadine.png"
+          heading="Endless Fruity Flavors"
+          description="Cantaloupe, Green Apple, Mango, Peach, Lychee, Banana, Blue Curacao, Coconut, Lemon Lime, Raspberry, Lemon, Passion Fruit, Strawberry, Grenadine, Lime, Blackcurrant, Pineapple.
+"
+        />
+        <TastesCard
+          preTitle="RICH"
+          boldTitle="COFFEE"
+          postTitle="INFUSIONS"
+          color="bg-yellow-700"
+          image="/products/caramel.png"
+          heading="Sweet & Creamy for Coffee Delights"
+          description="Caramel, Hazelnut, Irish Cream, Vanilla, Tiramisu, Butterscotch."
+        />
+        <TastesCard
+          preTitle="EXOTIC &"
+          boldTitle="UNIQUE"
+          postTitle="BLENDS"
+          color="bg-teal-700"
+          image="/products/bubble-gum.png"
+          heading="Exotic & Unique Flavors "
+          description="Pandan, Palm Sugar, Rose, Elderflower, Bubble Gum, Taro, Mint."
+        />
+      </section>
+      <section className="flex flex-col gap-8 text-2xl pr-32 mb-10">
         <h2>
           We take pride in offering three <b>key advantages</b> that set us
           apart:

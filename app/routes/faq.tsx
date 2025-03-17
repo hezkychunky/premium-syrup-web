@@ -1,6 +1,5 @@
 import { useState } from "react";
 import type { Route } from "./+types/faq";
-import Footer from "~/components/footer";
 
 export function meta({}: Route.MetaArgs) {
   return [

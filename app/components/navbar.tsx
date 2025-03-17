@@ -35,7 +35,7 @@ export default function Navbar() {
           <section>
             <Link to={"/"}>
               <img
-                src="logos/premium-logo-01.png"
+                src="/logos/premium-logo-01.png"
                 alt="Premium Logo"
                 className="h-32 w-32"
               />
@@ -80,7 +80,7 @@ export default function Navbar() {
 
       {/* Drawer Section */}
       <div
-        className={`fixed top-24 h-auto w-full text-xl bg-[theme(--color-primary)] text-[theme(--color-secondary)] overflow-hidden ${
+        className={`z-50 fixed top-24 h-auto w-full text-xl bg-[theme(--color-primary)] text-[theme(--color-secondary)] overflow-hidden ${
           openDrawer
             ? "max-h-1/3 opacity-100 py-2 transition-all duration-300 ease-in"
             : "max-h-0 py-0 transition-all duration-500 ease-out"
@@ -91,12 +91,14 @@ export default function Navbar() {
             <NavLink
               to={"/about-us"}
               className={({ isActive }) => (isActive ? "font-extrabold" : "")}
+              viewTransition
             >
               ABOUT US
             </NavLink>
             <NavLink
               to={"/product-knowledge"}
               className={({ isActive }) => (isActive ? "font-extrabold" : "")}
+              viewTransition
             >
               PRODUCT KNOWLEDGE
             </NavLink>
@@ -105,75 +107,94 @@ export default function Navbar() {
         {openDrawer === "products" && (
           <ul className="flex items-center justify-between pl-8">
             <li>
-              <NavLink to={"/not-applied"}>
+              <NavLink
+                to={"/products"}
+                className={({ isActive }) => (isActive ? "active-light" : "")}
+                end
+              >
                 <b className="block">ALL</b> PRODUCTS
               </NavLink>
             </li>
             <li className="flex items-center w-44">
               <div className="h-40 w-16 overflow-hidden">
                 <img
-                  src="products/grenadine.png"
+                  src="/products/grenadine.png"
                   alt="Grenadine"
                   className="h-40"
                 />
               </div>
-              <NavLink to={"/not-applied"}>
+              <NavLink
+                to={"/products/fruity-delights"}
+                className={({ isActive }) => (isActive ? "active-light" : "")}
+              >
                 <b className="block">FRUITY</b> DELIGHTS
               </NavLink>
             </li>
             <li className="flex items-center w-44">
               <div className="h-40 w-16">
                 <img
-                  src="products/caramel.png"
+                  src="/products/caramel.png"
                   alt="Grenadine"
                   className="h-40"
                 />
               </div>
-              <NavLink to={"/not-applied"}>
+              <NavLink
+                to={"/products/coffee-delights"}
+                className={({ isActive }) => (isActive ? "active-light" : "")}
+              >
                 <b className="block">COFFEE</b> DELIGHTS
               </NavLink>
             </li>
             <li className="flex items-center w-44">
               <div className="h-40 w-16 ">
                 <img
-                  src="products/bubble-gum.png"
+                  src="/products/bubble-gum.png"
                   alt="Grenadine"
                   className="h-40"
                 />
               </div>
-              <NavLink to={"/not-applied"}>
+              <NavLink
+                to={"/products/unique-delights"}
+                className={({ isActive }) => (isActive ? "active-light" : "")}
+              >
                 <b className="block">UNIQUE</b> DELIGHTS
               </NavLink>
             </li>
             <li className="flex items-center w-44">
               <div className="h-40 w-16 ">
                 <img
-                  src="products/grenadine.png"
+                  src="/products/grenadine.png"
                   alt="Grenadine"
                   className="h-40"
                 />
               </div>
-              <NavLink to={"/not-applied"}>
+              <NavLink
+                to={"/products/60ml-pack"}
+                className={({ isActive }) => (isActive ? "active-light" : "")}
+              >
                 <b className="block">60ml</b> PACK
               </NavLink>
             </li>
             <li className="flex items-center w-44">
               <div className="h-40 w-16 ">
                 <img
-                  src="products/grenadine.png"
+                  src="/products/grenadine.png"
                   alt="Grenadine"
                   className="h-40"
                 />
               </div>
-              <NavLink to={"/not-applied"}>
+              <NavLink
+                to={"/products/100ml-pack"}
+                className={({ isActive }) => (isActive ? "active-light" : "")}
+              >
                 <b className="block">100ml</b> PACK
               </NavLink>
             </li>
           </ul>
         )}
         {openDrawer === "recipes" && (
-          <NavLink to={"/not-applied"}>
-            Discover delicious recipes made with our products
+          <NavLink to={"/not-applied"} viewTransition>
+            Coming Soon
           </NavLink>
         )}
       </div>
