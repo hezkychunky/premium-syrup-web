@@ -22,7 +22,7 @@ export default function Faq() {
 
   return (
     <div className="flex flex-grow flex-col gap-8 items-center pt-36 pb-10 font-light">
-      <h1 className="text-3xl">
+      <h1 className="text-4xl">
         PREMIUM® SYRUP <b className="font-extrabold">FAQ’s</b>
       </h1>
       <div className="flex flex-col gap-6 w-3/4 lg:w-3/5">
@@ -34,7 +34,7 @@ export default function Faq() {
             <span className="pb-1">
               {openDrawer.includes("ordering") ? "-" : "+"}
             </span>
-            <h1>ORDERING</h1>
+            <h1 className="text-3xl font-semibold">ORDERING</h1>
           </button>
           {openDrawer.includes("ordering") && (
             <ul className="list-disc ml-10 text-base mt-2">
@@ -59,7 +59,7 @@ export default function Faq() {
             <span className="pb-1">
               {openDrawer.includes("product-stock") ? "-" : "+"}
             </span>
-            <h1>PRODUCT STOCK</h1>
+            <h1 className="text-3xl font-semibold">PRODUCT STOCK</h1>
           </button>
           {openDrawer.includes("product-stock") && (
             <p className="text-base pl-5 mt-2">
@@ -77,7 +77,7 @@ export default function Faq() {
             <span className="pb-1">
               {openDrawer.includes("shipping") ? "-" : "+"}
             </span>
-            <h1>SHIPPING</h1>
+            <h1 className="text-3xl font-semibold">SHIPPING</h1>
           </button>
           {openDrawer.includes("shipping") && (
             <p className="text-base pl-5 mt-2">

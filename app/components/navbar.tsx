@@ -43,29 +43,39 @@ export default function Navbar() {
           </section>
           <div className="hidden lg:flex font-sans justify-between items-center w-3/4 px-4">
             <button onClick={() => handleToggle("our-story")}>OUR STORY</button>
-            <button onClick={() => handleToggle("products")}>PRODUCTS</button>
-            <button onClick={() => handleToggle("recipes")}>RECIPES</button>
-            <NavLink
-              to={"/news"}
-              className={({ isActive }) => (isActive ? "active" : "")}
-              viewTransition
-            >
-              NEWS
-            </NavLink>
-            <NavLink
-              to={"/faq"}
-              className={({ isActive }) => (isActive ? "active" : "")}
-              viewTransition
-            >
-              FAQ
-            </NavLink>
-            <NavLink
-              to={"/contact-us"}
-              viewTransition
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              CONTACT US
-            </NavLink>
+            <button onClick={() => handleToggle("products")}>
+              <NavLink to={"/products"}>PRODUCTS</NavLink>
+            </button>
+            <button onClick={() => handleToggle("recipes")}>
+              <NavLink to={"/recipes"}>RECIPES</NavLink>
+            </button>
+            <button onClick={() => setOpenDrawer(null)}>
+              <NavLink
+                to={"/news"}
+                className={({ isActive }) => (isActive ? "active" : "")}
+                viewTransition
+              >
+                NEWS
+              </NavLink>
+            </button>
+            <button onClick={() => setOpenDrawer(null)}>
+              <NavLink
+                to={"/faq"}
+                className={({ isActive }) => (isActive ? "active" : "")}
+                viewTransition
+              >
+                FAQ
+              </NavLink>
+            </button>
+            <button onClick={() => setOpenDrawer(null)}>
+              <NavLink
+                to={"/contact-us"}
+                viewTransition
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                CONTACT US
+              </NavLink>
+            </button>
           </div>
           <button className="hidden lg:flex h-6 w-6">
             <img src="/icons/search-lens.svg" alt="Search" />
@@ -89,14 +99,14 @@ export default function Navbar() {
         {openDrawer === "our-story" && (
           <div className="flex justify-center py-2 gap-24">
             <NavLink
-              to={"/about-us"}
+              to={"/our-story/about-us"}
               className={({ isActive }) => (isActive ? "font-extrabold" : "")}
               viewTransition
             >
               ABOUT US
             </NavLink>
             <NavLink
-              to={"/product-knowledge"}
+              to={"/our-story/product-knowledge"}
               className={({ isActive }) => (isActive ? "font-extrabold" : "")}
               viewTransition
             >
@@ -193,9 +203,43 @@ export default function Navbar() {
           </ul>
         )}
         {openDrawer === "recipes" && (
-          <NavLink to={"/not-applied"} viewTransition>
-            Coming Soon
-          </NavLink>
+          <div className="flex justify-center py-4">
+            <ul className="flex justify-between w-3/5">
+              <li>
+                <NavLink
+                  to={"/recipes"}
+                  className={({ isActive }) => (isActive ? "active-light" : "")}
+                  end
+                >
+                  <b className="block">ALL</b> RECIPES
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"/recipes/fruity-delights"}
+                  className={({ isActive }) => (isActive ? "active-light" : "")}
+                >
+                  <b className="block">FRUITY</b> DELIGHTS
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"/recipes/coffee-delights"}
+                  className={({ isActive }) => (isActive ? "active-light" : "")}
+                >
+                  <b className="block">COFFEE</b> DELIGHTS
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"/recipes/unique-delights"}
+                  className={({ isActive }) => (isActive ? "active-light" : "")}
+                >
+                  <b className="block">UNIQUE</b> DELIGHTS
+                </NavLink>
+              </li>
+            </ul>
+          </div>
         )}
       </div>
     </>
