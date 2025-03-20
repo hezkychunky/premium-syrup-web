@@ -2,6 +2,8 @@ import { useParams } from "react-router";
 import type { Route } from "./+types/product";
 import Breadcrumb from "~/components/breadcrumb";
 
+import products from "../data/products.json";
+
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Premium Syrup Products" },
@@ -12,15 +14,29 @@ export function meta({}: Route.MetaArgs) {
 export default function Product() {
   const { category, product } = useParams();
 
+  function toNormalSpacing(params: string) {
+    return params.replace(/-/g, " ");
+  }
+  const parsedProduct = toNormalSpacing(product!);
+  const productDetails = products.find(
+    (product) => product.name.toLowerCase() === parsedProduct
+  );
+
+  console.log(productDetails?.theme);
+
   return (
     <div className="relative flex flex-col flex-grow items-center pt-36 text-3xl font-light">
-      <div className="hidden fixed -top-[130px] -right-[400px] rounded-full w-[1200px] h-[1200px] bg-[#d54d5d] opacity-20 xl:flex items-center justify-center"></div>
+      <div
+        className={`hidden fixed -top-[130px] -right-[400px] rounded-full w-[1200px] h-[1200px] opacity-20 xl:flex items-center justify-center`}
+        style={{ backgroundColor: productDetails?.theme }}
+      ></div>
       <h1
-        className={`absolute w-[580px] top-[450px] -left-[200px] -rotate-90 whitespace-nowrap text-[#d54d5d] opacity-80 font-bold ${
+        className={`absolute w-[580px] top-[450px] -left-[200px] -rotate-90 whitespace-nowrap opacity-80 font-bold ${
           product!.toUpperCase().length <= 9 ? "text-8xl" : "text-7xl"
         }`}
+        style={{ color: productDetails?.theme }}
       >
-        {product?.toUpperCase()}
+        {productDetails ? productDetails?.name.toUpperCase() : "Not Found"}
       </h1>
       <div className="flex flex-col lg:flex-row lg:gap-2 w-screen min-h-[600px] px-12">
         <section className="mb-12 lg:mb-0 lg:w-1/2">
@@ -46,7 +62,7 @@ export default function Product() {
           </div>
           <div className="border-y-4 py-4 w-full">
             <h1 className="mb-4 font-bold">VOLUME</h1>
-            <p className="text-2xl">650ml</p>
+            <p className="text-2xl">{productDetails?.volume}ml</p>
           </div>
           <div className="py-4">
             <h1 className="mb-4 font-bold">INGREDIENTS</h1>

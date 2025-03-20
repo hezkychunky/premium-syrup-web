@@ -26,6 +26,13 @@ a.active-light {
   text-underline-offset: 2px;
 }
 
+button.active {
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 10px;
+}
+
 b {
   font-weight: 700;
 }

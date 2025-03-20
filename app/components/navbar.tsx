@@ -1,9 +1,46 @@
-import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router";
+import { useEffect, useRef, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router";
 
 export default function Navbar() {
   const [openDrawer, setOpenDrawer] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pageLocation = useLocation();
+  const navbarRef = useRef<HTMLDivElement | null>(null);
+
+  const navDrawerMenus = ["our story", "products", "recipes"];
+  const navMenus = ["news", "faq", "contact us"];
+
+  const productCategories = [
+    "fruity delights",
+    "coffee delights",
+    "exotic delights",
+    "60ml pack",
+    "100ml pack",
+  ];
+
+  const recipeCategories = [
+    "fruity delights",
+    "coffee delights",
+    "exotic delights",
+  ];
+
+  useEffect(() => {
+    // Close the drawer if clicked outside the Navbar
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target as Node)
+      ) {
+        setOpenDrawer(null);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +63,7 @@ export default function Navbar() {
   return (
     <>
       <nav
+        ref={navbarRef}
         className={`fixed w-full h-20 md:h-24 px-8 flex flex-col justify-center items-center shadow-md z-50 transition-colors ease-in-out duration-700 ${
           isScrolled ? "bg-[theme(--color-secondary)]" : "bg-transparent"
         }`}
@@ -33,49 +71,46 @@ export default function Navbar() {
         {/* Navigation Buttons */}
         <section className="flex justify-center lg:justify-between items-center w-full text-lg lg:text-2xl overflow-hidden">
           <section>
-            <Link to={"/"}>
-              <img
-                src="/logos/premium-logo-01.png"
-                alt="Premium Logo"
-                className="h-32 w-32"
-              />
-            </Link>
+            <button onClick={() => setOpenDrawer(null)}>
+              <Link to={"/"}>
+                <img
+                  src="/logos/premium-logo-01.png"
+                  alt="Premium Logo"
+                  className="h-32 w-32"
+                />
+              </Link>
+            </button>
           </section>
           <div className="hidden lg:flex font-sans justify-between items-center w-3/4 px-4">
-            <button onClick={() => handleToggle("our-story")}>OUR STORY</button>
-            <button onClick={() => handleToggle("products")}>
-              <NavLink to={"/products"}>PRODUCTS</NavLink>
-            </button>
-            <button onClick={() => handleToggle("recipes")}>
-              <NavLink to={"/recipes"}>RECIPES</NavLink>
-            </button>
-            <button onClick={() => setOpenDrawer(null)}>
-              <NavLink
-                to={"/news"}
-                className={({ isActive }) => (isActive ? "active" : "")}
-                viewTransition
-              >
-                NEWS
-              </NavLink>
-            </button>
-            <button onClick={() => setOpenDrawer(null)}>
-              <NavLink
-                to={"/faq"}
-                className={({ isActive }) => (isActive ? "active" : "")}
-                viewTransition
-              >
-                FAQ
-              </NavLink>
-            </button>
-            <button onClick={() => setOpenDrawer(null)}>
-              <NavLink
-                to={"/contact-us"}
-                viewTransition
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                CONTACT US
-              </NavLink>
-            </button>
+            {navDrawerMenus.map((item) => {
+              return (
+                <button
+                  onClick={() => handleToggle(item.replace(/\s/, "-"))}
+                  className={
+                    pageLocation.pathname.startsWith(
+                      "/" + item.replace(/\s/, "-")
+                    )
+                      ? "active"
+                      : ""
+                  }
+                >
+                  {item.toUpperCase()}
+                </button>
+              );
+            })}
+            {navMenus.map((item) => {
+              return (
+                <button onClick={() => setOpenDrawer(null)}>
+                  <NavLink
+                    to={`/${item.replace(/\s/, "-")}`}
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                    viewTransition
+                  >
+                    {item.toUpperCase()}
+                  </NavLink>
+                </button>
+              );
+            })}
           </div>
           <button className="hidden lg:flex h-6 w-6">
             <img src="/icons/search-lens.svg" alt="Search" />
@@ -87,7 +122,6 @@ export default function Navbar() {
           <span className="w-5 border-1"></span>
         </button>
       </nav>
-
       {/* Drawer Section */}
       <div
         className={`z-50 fixed top-24 h-auto w-full text-xl bg-[theme(--color-primary)] text-[theme(--color-secondary)] overflow-hidden ${
@@ -125,81 +159,29 @@ export default function Navbar() {
                 <b className="block">ALL</b> PRODUCTS
               </NavLink>
             </li>
-            <li className="flex items-center w-44">
-              <div className="h-40 w-16 overflow-hidden">
-                <img
-                  src="/products/grenadine.png"
-                  alt="Grenadine"
-                  className="h-40"
-                />
-              </div>
-              <NavLink
-                to={"/products/fruity-delights"}
-                className={({ isActive }) => (isActive ? "active-light" : "")}
-              >
-                <b className="block">FRUITY</b> DELIGHTS
-              </NavLink>
-            </li>
-            <li className="flex items-center w-44">
-              <div className="h-40 w-16">
-                <img
-                  src="/products/caramel.png"
-                  alt="Grenadine"
-                  className="h-40"
-                />
-              </div>
-              <NavLink
-                to={"/products/coffee-delights"}
-                className={({ isActive }) => (isActive ? "active-light" : "")}
-              >
-                <b className="block">COFFEE</b> DELIGHTS
-              </NavLink>
-            </li>
-            <li className="flex items-center w-44">
-              <div className="h-40 w-16 ">
-                <img
-                  src="/products/bubble-gum.png"
-                  alt="Grenadine"
-                  className="h-40"
-                />
-              </div>
-              <NavLink
-                to={"/products/unique-delights"}
-                className={({ isActive }) => (isActive ? "active-light" : "")}
-              >
-                <b className="block">UNIQUE</b> DELIGHTS
-              </NavLink>
-            </li>
-            <li className="flex items-center w-44">
-              <div className="h-40 w-16 ">
-                <img
-                  src="/products/grenadine.png"
-                  alt="Grenadine"
-                  className="h-40"
-                />
-              </div>
-              <NavLink
-                to={"/products/60ml-pack"}
-                className={({ isActive }) => (isActive ? "active-light" : "")}
-              >
-                <b className="block">60ml</b> PACK
-              </NavLink>
-            </li>
-            <li className="flex items-center w-44">
-              <div className="h-40 w-16 ">
-                <img
-                  src="/products/grenadine.png"
-                  alt="Grenadine"
-                  className="h-40"
-                />
-              </div>
-              <NavLink
-                to={"/products/100ml-pack"}
-                className={({ isActive }) => (isActive ? "active-light" : "")}
-              >
-                <b className="block">100ml</b> PACK
-              </NavLink>
-            </li>
+            {productCategories.map((category) => {
+              const words = category.split(" ");
+              return (
+                <li className="flex items-center w-44">
+                  <div className="h-40 w-16 overflow-hidden">
+                    <img
+                      src="/products/grenadine.png"
+                      alt="Grenadine"
+                      className="h-40"
+                    />
+                  </div>
+                  <NavLink
+                    to={`/products/${category.replace(/\s/, "-")}`}
+                    className={({ isActive }) =>
+                      isActive ? "active-light" : ""
+                    }
+                  >
+                    <b className="block">{words[0].toUpperCase()}</b>{" "}
+                    {words[1].toUpperCase()}
+                  </NavLink>
+                </li>
+              );
+            })}
           </ul>
         )}
         {openDrawer === "recipes" && (
@@ -214,30 +196,22 @@ export default function Navbar() {
                   <b className="block">ALL</b> RECIPES
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to={"/recipes/fruity-delights"}
-                  className={({ isActive }) => (isActive ? "active-light" : "")}
-                >
-                  <b className="block">FRUITY</b> DELIGHTS
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to={"/recipes/coffee-delights"}
-                  className={({ isActive }) => (isActive ? "active-light" : "")}
-                >
-                  <b className="block">COFFEE</b> DELIGHTS
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to={"/recipes/unique-delights"}
-                  className={({ isActive }) => (isActive ? "active-light" : "")}
-                >
-                  <b className="block">UNIQUE</b> DELIGHTS
-                </NavLink>
-              </li>
+              {recipeCategories.map((category) => {
+                const words = category.split(" ");
+                return (
+                  <li>
+                    <NavLink
+                      to={`/recipes/${category.replace(/\s/, "-")}`}
+                      className={({ isActive }) =>
+                        isActive ? "active-light" : ""
+                      }
+                    >
+                      <b className="block">{words[0].toUpperCase()}</b>{" "}
+                      {words[1].toUpperCase()}
+                    </NavLink>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         )}

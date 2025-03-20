@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "recipe-name": "Moonlit Lychee",
+    "base-syrup": "premium® lychee",
+    "ingredients": [
+      {
+        "id": 1,
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "id": 2,
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "id": 3,
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "id": 4,
+        "item": "lychee"
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888"
+  }
+]
