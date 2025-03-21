@@ -3,6 +3,7 @@ import type { Route } from "./+types/products-by-category";
 import ProductCard from "~/components/product-card";
 
 import products from "../data/products.json";
+import { toKebabCase, toNormalSpacing } from "~/utils/parser";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -13,13 +14,6 @@ export function meta({}: Route.MetaArgs) {
 
 export default function ProductsByCategory() {
   const { category } = useParams();
-
-  function toNormalSpacing(params: string) {
-    return params.replace(/-/g, " ");
-  }
-  function toKebabCase(params: string) {
-    return decodeURIComponent(params).toLowerCase().replace(/\s/g, "-");
-  }
 
   const parsedCategory = toNormalSpacing(category!);
 

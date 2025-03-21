@@ -1,6 +1,7 @@
 import { NavLink, useParams } from "react-router";
 import type { Route } from "./+types/recipes-by-category";
 import RecipeCard from "~/components/recipe-card";
+import { toNormalSpacing } from "~/utils/parser";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -11,10 +12,6 @@ export function meta({}: Route.MetaArgs) {
 
 export default function RecipesByCategory() {
   const { category } = useParams();
-
-  function toNormalSpacing(params: string) {
-    return params.replace(/-/g, " ");
-  }
 
   return (
     <div className="flex flex-col flex-grow items-center pt-36 text-3xl font-light">

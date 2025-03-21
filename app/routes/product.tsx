@@ -3,6 +3,7 @@ import type { Route } from "./+types/product";
 import Breadcrumb from "~/components/breadcrumb";
 
 import products from "../data/products.json";
+import { toNormalSpacing } from "~/utils/parser";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -14,9 +15,6 @@ export function meta({}: Route.MetaArgs) {
 export default function Product() {
   const { category, product } = useParams();
 
-  function toNormalSpacing(params: string) {
-    return params.replace(/-/g, " ");
-  }
   const parsedProduct = toNormalSpacing(product!);
   const productDetails = products.find(
     (product) => product.name.toLowerCase() === parsedProduct

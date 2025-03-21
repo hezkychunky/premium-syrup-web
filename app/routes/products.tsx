@@ -3,6 +3,7 @@ import type { Route } from "./+types/products";
 import { NavLink } from "react-router";
 
 import products from "../data/products.json";
+import { toKebabCase } from "~/utils/parser";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -18,7 +19,11 @@ export default function Products() {
       <section className="flex flex-wrap justify-evenly gap-10 pt-40 pr-20 mb-12">
         {products.map((item) => {
           return (
-            <NavLink to={`/products/${item.category}/${item.name}`}>
+            <NavLink
+              to={`/products/${toKebabCase(item.category)}/${toKebabCase(
+                item.name
+              )}`}
+            >
               <ProductCard title={item.name} image={item.image} />
             </NavLink>
           );
