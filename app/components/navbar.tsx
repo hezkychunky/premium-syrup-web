@@ -3,9 +3,11 @@ import { Link, NavLink, useLocation } from "react-router";
 
 export default function Navbar() {
   const [openDrawer, setOpenDrawer] = useState<string | null>(null);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pageLocation = useLocation();
   const navbarRef = useRef<HTMLDivElement | null>(null);
+  const sidebarRef = useRef<HTMLDivElement | null>(null);
 
   const navDrawerMenus = ["our story", "products", "recipes"];
   const navMenus = ["news", "faq", "contact us"];
@@ -33,6 +35,11 @@ export default function Navbar() {
       ) {
         setOpenDrawer(null);
       }
+
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node)
+      ) setSidebarOpen(false);
     };
 
     document.addEventListener("click", handleClickOutside);
@@ -40,7 +47,7 @@ export default function Navbar() {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  }, [openDrawer, isSidebarOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,6 +92,7 @@ export default function Navbar() {
             {navDrawerMenus.map((item) => {
               return (
                 <button
+                  key={item}
                   onClick={() => handleToggle(item.replace(/\s/, "-"))}
                   className={
                     pageLocation.pathname.startsWith(
@@ -100,7 +108,7 @@ export default function Navbar() {
             })}
             {navMenus.map((item) => {
               return (
-                <button onClick={() => setOpenDrawer(null)}>
+                <button key={item} onClick={() => setOpenDrawer(null)}>
                   <NavLink
                     to={`/${item.replace(/\s/, "-")}`}
                     className={({ isActive }) => (isActive ? "active" : "")}
@@ -116,12 +124,15 @@ export default function Navbar() {
             <img src="/icons/search-lens.svg" alt="Search" />
           </button>
         </section>
-        <button className="absolute lg:hidden flex flex-col gap-1 right-6">
+
+        {/* mobile navbar */}
+        <button className="absolute lg:hidden flex flex-col gap-1 right-6" onClick={() => setSidebarOpen(!isSidebarOpen)}>
           <span className="w-5 border-1"></span>
           <span className="w-5 border-1"></span>
           <span className="w-5 border-1"></span>
         </button>
       </nav>
+
       {/* Drawer Section */}
       <div
         className={`z-50 fixed top-24 h-auto w-full text-xl bg-[theme(--color-primary)] text-[theme(--color-secondary)] overflow-hidden ${
@@ -215,6 +226,19 @@ export default function Navbar() {
             </ul>
           </div>
         )}
+      </div>
+
+      {/* Drawer Section: mobile */}
+      <div
+        ref={sidebarRef}
+        className={`
+          lg:hidden z-100 text-xl text-[theme(--color-secondary)] bg-[theme(--color-primary)] w-80 fixed inset-y-0 right-0
+          ${isSidebarOpen ? "translate-x-0 duration-300 ease-in" : "translate-x-full duration-500 ease-out"}
+        `}
+      >
+        <div id="sidebar" className="p-4">
+          <p onClick={() => setSidebarOpen(false)}>Close</p>
+        </div>
       </div>
     </>
   );
