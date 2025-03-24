@@ -35,11 +35,6 @@ export default function Navbar() {
       ) {
         setOpenDrawer(null);
       }
-
-      if (
-        sidebarRef.current &&
-        !sidebarRef.current.contains(event.target as Node)
-      ) setSidebarOpen(false);
     };
 
     document.addEventListener("click", handleClickOutside);
@@ -47,7 +42,29 @@ export default function Navbar() {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [openDrawer, isSidebarOpen]);
+  }, [openDrawer]);
+
+  useEffect(() => {
+    const onClickOutsideNavbar = (event: MouseEvent) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node)
+      ) {
+        setSidebarOpen(false);
+        document.body.classList.remove('overflow-hidden');
+      }
+    };
+
+    if (isSidebarOpen) {
+      document.body.classList.add('overflow-hidden');
+    }
+
+    document.addEventListener("click", onClickOutsideNavbar);
+
+    return () => {
+      document.removeEventListener("click", onClickOutsideNavbar);
+    };
+  }, [isSidebarOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,6 +83,10 @@ export default function Navbar() {
   const handleToggle = (section: string) => {
     setOpenDrawer(openDrawer === section ? null : section);
   };
+
+  const expandDrawer = (section: string) => {
+    console.log(section);
+  }
 
   return (
     <>
@@ -232,12 +253,48 @@ export default function Navbar() {
       <div
         ref={sidebarRef}
         className={`
-          lg:hidden z-100 text-xl text-[theme(--color-secondary)] bg-[theme(--color-primary)] w-80 fixed inset-y-0 right-0
+          lg:hidden z-100 text-xl text-black bg-[theme(--color-secondary)] w-80 fixed inset-y-0 right-0 shadow-md overflow-y-auto
           ${isSidebarOpen ? "translate-x-0 duration-300 ease-in" : "translate-x-full duration-500 ease-out"}
         `}
       >
         <div id="sidebar" className="p-4">
           <p onClick={() => setSidebarOpen(false)}>Close</p>
+          {/* Expandables */}
+          {
+            navDrawerMenus.map((drawer) => (
+              <div key={drawer} className="py-1 text-end">
+                <button
+                  key={drawer}
+                  onClick={() => expandDrawer(drawer.replace(/\s/, "-"))}
+                  className={
+                    pageLocation.pathname.startsWith(
+                      "/" + drawer.replace(/\s/, "-")
+                    )
+                      ? "active"
+                      : ""
+                  }
+                >
+                  {drawer.toUpperCase()}
+                </button>
+              </div>
+            ))
+          }
+
+          {/* Links */}
+          {
+            navMenus.map((menu) => (
+              <div key={menu} className="py-1 text-end">
+                <NavLink
+                  to={`/${menu.replace(/\s/, "-")}`}
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                  onClick={() => setSidebarOpen(false)}
+                  viewTransition
+                >
+                  {menu.toUpperCase()}
+                </NavLink>
+              </div>
+            ))
+          }
         </div>
       </div>
     </>
