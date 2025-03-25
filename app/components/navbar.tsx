@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router";
+import ExpandableNavItem from "./expandable-nav-item";
+
+import mobileNavMenus from "../data/menus.json";
 
 export default function Navbar() {
   const [openDrawer, setOpenDrawer] = useState<string | null>(null);
@@ -84,10 +87,6 @@ export default function Navbar() {
   const handleToggle = (section: string) => {
     setOpenDrawer(openDrawer === section ? null : section);
   };
-
-  const expandDrawer = (section: string) => {
-    console.log(section);
-  }
 
   return (
     <>
@@ -262,21 +261,9 @@ export default function Navbar() {
           <p onClick={() => setSidebarOpen(false)}>Close</p>
           {/* Expandables */}
           {
-            navDrawerMenus.map((drawer) => (
-              <div key={drawer} className="py-1 text-end">
-                <button
-                  key={drawer}
-                  onClick={() => expandDrawer(drawer.replace(/\s/, "-"))}
-                  className={
-                    pageLocation.pathname.startsWith(
-                      "/" + drawer.replace(/\s/, "-")
-                    )
-                      ? "active"
-                      : ""
-                  }
-                >
-                  {drawer.toUpperCase()}
-                </button>
+            mobileNavMenus.map((drawer) => (
+              <div key={drawer.title} className="py-1 text-end">
+                <ExpandableNavItem key={drawer.title} drawer={drawer.title} children={drawer.children} />
               </div>
             ))
           }

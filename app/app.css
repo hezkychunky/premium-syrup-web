@@ -36,3 +36,15 @@ button.active {
 b {
   font-weight: 700;
 }
+
+/* transition on open */
+.expandable-children.open {
+  transition: max-height 300ms ease-in;
+  max-height: calc(var(--spacing) * 80);
+}
+
+/* transition on close */
+.expandable-children.close {
+  transition: max-height 500ms ease-out;
+  max-height: 0;
+}

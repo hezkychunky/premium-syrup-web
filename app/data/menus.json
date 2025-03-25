@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Our Story",
+    "children": [
+      {
+        "title": "About Us",
+        "to": "/our-story/about-us"
+      },
+      {
+        "title": "Product Knowledge",
+        "to": "/our-story/product-knowledge"
+      }
+    ]
+  },
+  {
+    "title": "Products",
+    "children": [
+      {
+        "title": "All Products",
+        "to": "/products"
+      },
+      {
+        "title": "Fruity Delights",
+        "to": "/products/fruity-delights"
+      },
+      {
+        "title": "Coffee Delights",
+        "to": "/products/coffee-delights"
+      },
+      {
+        "title": "Exotic Delights",
+        "to": "/products/exotic-delights"
+      },
+      {
+        "title": "60ml Pack",
+        "to": "/products/60ml-pack"
+      },
+      {
+        "title": "100ml Pack",
+        "to": "/products/100ml-pack"
+      }
+    ]
+  },
+  {
+    "title": "Recipes",
+    "children": [
+      {
+        "title": "All Recipes",
+        "to": "/recipes"
+      },
+      {
+        "title": "Fruity Delights",
+        "to": "/recipes/fruity-delights"
+      },
+      {
+        "title": "Coffee Delights",
+        "to": "/recipes/coffee-delights"
+      },
+      {
+        "title": "Exotic Delights",
+        "to": "/recipes/exotic-delights"
+      }
+    ]
+  }
+]
