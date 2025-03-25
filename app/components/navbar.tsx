@@ -51,12 +51,13 @@ export default function Navbar() {
         !sidebarRef.current.contains(event.target as Node)
       ) {
         setSidebarOpen(false);
-        document.body.classList.remove('overflow-hidden');
       }
     };
 
     if (isSidebarOpen) {
       document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
     }
 
     document.addEventListener("click", onClickOutsideNavbar);
