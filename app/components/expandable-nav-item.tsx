@@ -10,16 +10,14 @@ export default function ExpandableNavItem({ drawer, children }: ExpandableNavIte
   const pageLocation = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
-  const active = pageLocation.pathname.startsWith('/' + drawer.replace(/\s/, '-'))
-    ? 'active'
-    : '';
+  const isNavLinkActive = (to: string) => {
+    // override NavLink's default active class behavior
+    return `py-1 ${pageLocation.pathname === to ? 'active' : ''}`;
+  };
 
   return (
     <>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={active}
-      >
+      <button onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? '-' : '+'} {drawer.toUpperCase()}
       </button>
       <div className={`flex flex-col overflow-hidden expandable-children ${isOpen ? 'open' : 'close'}`}>
@@ -28,7 +26,7 @@ export default function ExpandableNavItem({ drawer, children }: ExpandableNavIte
             <NavLink
               key={item.title}
               to={item.to}
-              className={({ isActive }) => (isActive ? "active py-1" : "py-1")}
+              className={() => isNavLinkActive(item.to)}
               viewTransition
             >
               {item.title.toUpperCase()}
