@@ -15,6 +15,13 @@
 
 a.active {
   font-weight: bold;
+  text-decoration-color: #0e2a63;
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 10px;
+}
+
+a.active-ourstory {
   text-decoration: underline;
   text-decoration-thickness: 4px;
   text-underline-offset: 10px;
@@ -23,7 +30,7 @@ a.active {
 a.active-light {
   text-decoration: underline;
   text-decoration-thickness: 2px;
-  text-underline-offset: 2px;
+  text-underline-offset: 4px;
 }
 
 button.active {

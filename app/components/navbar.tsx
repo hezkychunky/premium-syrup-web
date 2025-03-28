@@ -18,15 +18,13 @@ export default function Navbar() {
   const productCategories = [
     "fruity delights",
     "coffee delights",
-    "exotic delights",
-    "60ml pack",
-    "100ml pack",
+    "unique delights",
   ];
 
   const recipeCategories = [
     "fruity delights",
     "coffee delights",
-    "exotic delights",
+    "unique delights",
   ];
 
   useEffect(() => {
@@ -58,9 +56,9 @@ export default function Navbar() {
     };
 
     if (isSidebarOpen) {
-      document.body.classList.add('overflow-hidden');
+      document.body.classList.add("overflow-hidden");
     } else {
-      document.body.classList.remove('overflow-hidden');
+      document.body.classList.remove("overflow-hidden");
     }
 
     document.addEventListener("click", onClickOutsideNavbar);
@@ -97,7 +95,7 @@ export default function Navbar() {
         }`}
       >
         {/* Navigation Buttons */}
-        <section className="flex justify-center lg:justify-between items-center w-full text-lg lg:text-2xl overflow-hidden">
+        <section className="flex justify-center lg:justify-between items-center w-full text-lg xl:text-2xl overflow-hidden">
           <section>
             <button onClick={() => setOpenDrawer(null)}>
               <Link to={"/"}>
@@ -109,35 +107,43 @@ export default function Navbar() {
               </Link>
             </button>
           </section>
-          <div className="hidden lg:flex font-sans justify-between items-center w-3/4 px-4">
-            {navDrawerMenus.map((item) => {
+          <div className="hidden lg:flex font-sans justify-between items-center w-3/4 px-4 text-[theme(--color-primary)]">
+            {navDrawerMenus.map((item, index) => {
               return (
-                <button
-                  key={item}
-                  onClick={() => handleToggle(item.replace(/\s/, "-"))}
-                  className={
-                    pageLocation.pathname.startsWith(
-                      "/" + item.replace(/\s/, "-")
-                    )
-                      ? "active"
-                      : ""
-                  }
-                >
-                  {item.toUpperCase()}
-                </button>
-              );
-            })}
-            {navMenus.map((item) => {
-              return (
-                <button key={item} onClick={() => setOpenDrawer(null)}>
-                  <NavLink
-                    to={`/${item.replace(/\s/, "-")}`}
-                    className={({ isActive }) => (isActive ? "active" : "")}
-                    viewTransition
+                <div key={index} className="relative group">
+                  <button
+                    onClick={() => handleToggle(item.replace(/\s/, "-"))}
+                    className={
+                      pageLocation.pathname.startsWith(
+                        "/" + item.replace(/\s/, "-")
+                      )
+                        ? "active pb-[6px]"
+                        : "pb-[6px]"
+                    }
                   >
                     {item.toUpperCase()}
-                  </NavLink>
-                </button>
+                  </button>
+                  <span className="absolute bottom-0 left-0 w-0 h-[3px] bg-[theme(--color-primary)] transition-all duration-200 group-hover:w-full"></span>
+                </div>
+              );
+            })}
+            {navMenus.map((item, index) => {
+              return (
+                <div key={index} className="relative group">
+                  <button
+                    onClick={() => setOpenDrawer(null)}
+                    className="mb-[6px]"
+                  >
+                    <NavLink
+                      to={`/${item.replace(/\s/, "-")}`}
+                      className={({ isActive }) => (isActive ? "active" : "")}
+                      viewTransition
+                    >
+                      {item.toUpperCase()}
+                    </NavLink>
+                  </button>
+                  <span className="absolute bottom-0 left-0 w-0 h-[3px] bg-[theme(--color-primary)] transition-all duration-200 group-hover:w-full"></span>
+                </div>
               );
             })}
           </div>
@@ -147,7 +153,10 @@ export default function Navbar() {
         </section>
 
         {/* mobile navbar */}
-        <button className="absolute lg:hidden flex flex-col gap-1 right-6" onClick={() => setSidebarOpen(!isSidebarOpen)}>
+        <button
+          className="absolute lg:hidden flex flex-col gap-1 right-6"
+          onClick={() => setSidebarOpen(!isSidebarOpen)}
+        >
           <span className="w-5 border-1"></span>
           <span className="w-5 border-1"></span>
           <span className="w-5 border-1"></span>
@@ -163,25 +172,39 @@ export default function Navbar() {
         }`}
       >
         {openDrawer === "our-story" && (
-          <div className="flex justify-center py-2 gap-24">
-            <NavLink
-              to={"/our-story/about-us"}
-              className={({ isActive }) => (isActive ? "font-extrabold" : "")}
-              viewTransition
-            >
-              ABOUT US
-            </NavLink>
-            <NavLink
-              to={"/our-story/product-knowledge"}
-              className={({ isActive }) => (isActive ? "font-extrabold" : "")}
-              viewTransition
-            >
-              PRODUCT KNOWLEDGE
-            </NavLink>
-          </div>
+          <section className="flex justify-center py-2 gap-24">
+            <div className="relative group">
+              <div className="mb-[6px]">
+                <NavLink
+                  to={"/our-story/about-us"}
+                  className={({ isActive }) =>
+                    isActive ? "font-extrabold active-ourstory " : ""
+                  }
+                  viewTransition
+                >
+                  ABOUT US
+                </NavLink>
+              </div>
+              <span className="absolute bottom-0 left-0 w-0 h-[3px] bg-white transition-all duration-200 group-hover:w-full"></span>
+            </div>
+            <div className="relative group">
+              <div className="mb-[6px]">
+                <NavLink
+                  to={"/our-story/product-knowledge"}
+                  className={({ isActive }) =>
+                    isActive ? "font-extrabold active-ourstory " : ""
+                  }
+                  viewTransition
+                >
+                  PRODUCT KNOWLEDGE
+                </NavLink>
+              </div>
+              <span className="absolute bottom-0 left-0 w-0 h-[3px] bg-white transition-all duration-200 group-hover:w-full"></span>
+            </div>
+          </section>
         )}
         {openDrawer === "products" && (
-          <ul className="flex items-center justify-between pl-8">
+          <ul className="flex items-center justify-evenly pl-8">
             <li>
               <NavLink
                 to={"/products"}
@@ -191,13 +214,13 @@ export default function Navbar() {
                 <b className="block">ALL</b> PRODUCTS
               </NavLink>
             </li>
-            {productCategories.map((category) => {
+            {productCategories.map((category, index) => {
               const words = category.split(" ");
               return (
-                <li className="flex items-center w-44">
+                <li key={index} className="flex items-center w-44">
                   <div className="h-40 w-16 overflow-hidden">
                     <img
-                      src="/products/grenadine.png"
+                      src="/icons/vanilla-small.png"
                       alt="Grenadine"
                       className="h-40"
                     />
@@ -220,18 +243,22 @@ export default function Navbar() {
           <div className="flex justify-center py-4">
             <ul className="flex justify-between w-3/5">
               <li>
-                <NavLink
-                  to={"/recipes"}
-                  className={({ isActive }) => (isActive ? "active-light" : "")}
-                  end
-                >
-                  <b className="block">ALL</b> RECIPES
-                </NavLink>
+                <div>
+                  <NavLink
+                    to={"/recipes"}
+                    className={({ isActive }) =>
+                      isActive ? "active-light" : ""
+                    }
+                    end
+                  >
+                    <b className="block">ALL</b> RECIPES
+                  </NavLink>
+                </div>
               </li>
-              {recipeCategories.map((category) => {
+              {recipeCategories.map((category, index) => {
                 const words = category.split(" ");
                 return (
-                  <li>
+                  <li key={index}>
                     <NavLink
                       to={`/recipes/${category.replace(/\s/, "-")}`}
                       className={({ isActive }) =>
@@ -254,35 +281,39 @@ export default function Navbar() {
         ref={sidebarRef}
         className={`
           lg:hidden z-100 text-xl text-black bg-[theme(--color-secondary)] w-80 fixed inset-y-0 right-0 shadow-md overflow-y-auto
-          ${isSidebarOpen ? "translate-x-0 duration-300 ease-in" : "translate-x-full duration-500 ease-out"}
+          ${
+            isSidebarOpen
+              ? "translate-x-0 duration-300 ease-in"
+              : "translate-x-full duration-500 ease-out"
+          }
         `}
       >
         <div id="sidebar" className="p-4">
           <p onClick={() => setSidebarOpen(false)}>Close</p>
           {/* Expandables */}
-          {
-            mobileNavMenus.map((drawer) => (
-              <div key={drawer.title} className="py-1 text-end">
-                <ExpandableNavItem key={drawer.title} drawer={drawer.title} children={drawer.children} />
-              </div>
-            ))
-          }
+          {mobileNavMenus.map((drawer) => (
+            <div key={drawer.title} className="py-1 text-end">
+              <ExpandableNavItem
+                key={drawer.title}
+                drawer={drawer.title}
+                children={drawer.children}
+              />
+            </div>
+          ))}
 
           {/* Links */}
-          {
-            navMenus.map((menu) => (
-              <div key={menu} className="py-1 text-end">
-                <NavLink
-                  to={`/${menu.replace(/\s/, "-")}`}
-                  className={({ isActive }) => (isActive ? "active" : "")}
-                  onClick={() => setSidebarOpen(false)}
-                  viewTransition
-                >
-                  {menu.toUpperCase()}
-                </NavLink>
-              </div>
-            ))
-          }
+          {navMenus.map((menu) => (
+            <div key={menu} className="py-1 text-end">
+              <NavLink
+                to={`/${menu.replace(/\s/, "-")}`}
+                className={({ isActive }) => (isActive ? "active" : "")}
+                onClick={() => setSidebarOpen(false)}
+                viewTransition
+              >
+                {menu.toUpperCase()}
+              </NavLink>
+            </div>
+          ))}
         </div>
       </div>
     </>

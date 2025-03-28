@@ -4,6 +4,8 @@ import Breadcrumb from "~/components/breadcrumb";
 
 import products from "../data/products.json";
 import { toNormalSpacing } from "~/utils/parser";
+import { useState } from "react";
+import ShopModal from "~/components/shop-modal";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -14,16 +16,24 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Product() {
   const { category, product } = useParams();
-
+  const [isShopModalOpen, setIsShopModalOpen] = useState(false);
   const parsedProduct = toNormalSpacing(product!);
   const productDetails = products.find(
     (product) => product.name.toLowerCase() === parsedProduct
   );
 
-  console.log(productDetails?.theme);
+  const handleShopNowClick = () => {
+    setIsShopModalOpen(true); // Open the modal when button is clicked
+  };
+  const handleCloseModal = () => {
+    setIsShopModalOpen(false);
+  };
 
   return (
     <div className="relative flex flex-col flex-grow items-center pt-36 text-3xl font-light">
+      {isShopModalOpen && (
+        <ShopModal tokopedia="" shopee="" onClose={handleCloseModal} />
+      )}
       <div
         className={`hidden fixed -top-[130px] -right-[400px] rounded-full w-[1200px] h-[1200px] opacity-20 xl:flex items-center justify-center`}
         style={{ backgroundColor: productDetails?.theme }}
@@ -44,7 +54,12 @@ export default function Product() {
           <div className="flex flex-grow h-full w-full">
             <div className="flex items-center justify-center max-w-[150px]"></div>
             <div className="flex flex-grow justify-end pr-36 h-full]">
-              <img src="/products/grenadine.png" alt="" className="h-[580px]" />
+              <img
+                src={productDetails?.image}
+                // src="/products/grenadine-detail-1.png"
+                alt={`${productDetails?.image} image`}
+                className="h-[580px]"
+              />
             </div>
           </div>
         </section>
@@ -70,7 +85,10 @@ export default function Product() {
               Synthetic Colorings (Ponceau 4R Cl 16255, Carmoisine Cl 14720)
             </p>
           </div>
-          <button className="w-[220px] bg-[theme(--color-secondary)] shadow-md shadow-gray-600 rounded-lg border-2 border-gray-600 py-1 font-bold hover:scale-95">
+          <button
+            onClick={handleShopNowClick}
+            className="w-[220px] bg-[theme(--color-secondary)] shadow-md shadow-gray-600 rounded-lg border-2 border-gray-600 py-1 font-bold hover:scale-95"
+          >
             SHOP NOW
           </button>
         </section>
