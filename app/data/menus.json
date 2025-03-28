@@ -28,8 +28,8 @@
         "to": "/products/coffee-delights"
       },
       {
-        "title": "Exotic Delights",
-        "to": "/products/exotic-delights"
+        "title": "Unique Delights",
+        "to": "/products/unique-delights"
       },
       {
         "title": "60ml Pack",
@@ -57,8 +57,8 @@
         "to": "/recipes/coffee-delights"
       },
       {
-        "title": "Exotic Delights",
-        "to": "/recipes/exotic-delights"
+        "title": "Unique Delights",
+        "to": "/recipes/unique-delights"
       }
     ]
   }
