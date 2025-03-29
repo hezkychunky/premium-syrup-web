@@ -11,7 +11,7 @@ export function meta({}: Route.MetaArgs) {
 export default function ContactUs() {
   return (
     <div className="flex flex-col flex-grow items-center pt-36 text-4xl font-semibold">
-      <div className="flex flex-col md:flex-row md:items w-full px-8 md:px-12 lg:px-24 min-h-80 mb-12">
+      <div className="flex flex-col gap-12 md:gap-0 md:flex-row md:items w-full px-12 sm:px-24 md:px-12 lg:px-24 min-h-80 mb-12">
         <section className="flex flex-col w-full md:w-1/2 md:pr-6 lg:pr-12">
           <h1>We will be happy to hear from you.</h1>
           <form
@@ -41,7 +41,7 @@ export default function ContactUs() {
         </section>
 
         {/* Footer */}
-        <section className="flex flex-col gap-10 w-full md:w-1/2 md:pl-6 lg:pl-12">
+        <section className="flex flex-col items-center md:items-start text-center md:text-start gap-10 w-full md:w-1/2 md:pl-6 lg:pl-12">
           <div className="flex flex-col gap-3 text-lg">
             <h1 className="text-3xl font-thin tracking-widest">LOCATION</h1>
             <h2>PT KARYA CIPTANYATA WISESA</h2>
@@ -56,7 +56,7 @@ export default function ContactUs() {
           </div>
           <div className="flex flex-col gap-3 text-lg">
             <h1 className="text-3xl font-thin tracking-widest">SOCIAL MEDIA</h1>
-            <div className="flex gap-4">
+            <div className="flex justify-center md:justify-start gap-4">
               <Link
                 to={"https://www.instagram.com/premiumsyrup.id/"}
                 target="_blank"
