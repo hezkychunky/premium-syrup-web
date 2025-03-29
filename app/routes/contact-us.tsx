@@ -18,20 +18,20 @@ export default function ContactUs() {
             action=""
             className="flex flex-col py-6 gap-6 text-xl font-light md:pr-2 lg:pr-12"
           >
-            <input type="text" placeholder="NAME" className="border-b-1 pb-1" />
+            <input type="text" placeholder="NAME" className="border-b-1 pb-1 focus:outline-0" />
             <input
               type="email"
               placeholder="E-MAIL"
-              className="border-b-1 pb-1"
+              className="border-b-1 pb-1 focus:outline-0"
             />
-            <input type="tel" placeholder="PHONE" className="border-b-1 pb-1" />
+            <input type="tel" placeholder="PHONE" className="border-b-1 pb-1 focus:outline-0" />
             <textarea
               name="message"
               rows={4}
               cols={50}
               placeholder="MESSAGE"
-              className="border-b-1 pb-1"
-            ></textarea>
+              className="border-b-1 pb-1 focus:outline-0"
+            />
             <div className="w-full flex justify-center mt-10">
               <button className="shadow-md rounded-xl w-3/5 shadow-gray-400 py-2 hover:scale-95 hover:brightness-75">
                 SUBMIT MESSAGE
