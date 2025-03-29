@@ -10,13 +10,13 @@ export function meta({}: Route.MetaArgs) {
 
 export default function ContactUs() {
   return (
-    <div className="flex flex-col flex-grow items-center pt-48 text-4xl font-semibold">
-      <div className="flex flex-col gap-6 xl:flex-row xl:items xl:gap-0 w-full px-28 min-h-80 mb-12">
-        <section className="flex flex-col w-full xl:w-1/2 pr-12 xl:pr-64">
+    <div className="flex flex-col flex-grow items-center pt-36 text-4xl font-semibold">
+      <div className="flex flex-col md:flex-row md:items w-full px-12 md:px-24 min-h-80 mb-12">
+        <section className="flex flex-col w-full md:w-1/2 md:pr-12">
           <h1>We will be happy to hear from you.</h1>
           <form
             action=""
-            className="flex flex-col py-6 gap-6 text-xl font-light"
+            className="flex flex-col py-6 gap-6 text-xl font-light md:pr-16"
           >
             <input type="text" placeholder="NAME" className="border-b-1 pb-1" />
             <input
@@ -39,7 +39,9 @@ export default function ContactUs() {
             </div>
           </form>
         </section>
-        <section className="flex flex-col gap-10 pl-6 pr-52 w-full xl:w-1/2 ">
+
+        {/* Footer */}
+        <section className="flex flex-col gap-10 w-full md:w-1/2 md:pl-12">
           <div className="flex flex-col gap-3 text-lg">
             <h1 className="text-3xl font-thin tracking-widest">LOCATION</h1>
             <h2>PT KARYA CIPTANYATA WISESA</h2>
