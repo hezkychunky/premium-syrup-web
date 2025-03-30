@@ -1,5 +1,8 @@
 import { Link } from "react-router";
+import { useFetcher } from "react-router";
+
 import type { Route } from "./+types/contact-us";
+import { contactUsValidator } from "~/utils/validator";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -8,36 +11,84 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
+export async function action({ request }: Route.ActionArgs) {
+  const formData = await request.formData();
+  const result = contactUsValidator(formData);
+
+  if (!result.data.success) {
+    return result;
+  }
+
+  // TODO: send to API
+  return result;
+}
+
 export default function ContactUs() {
+  const fetcher = useFetcher();
+  const result = fetcher.data;
+
   return (
     <div className="flex flex-col flex-grow items-center pt-36 text-4xl font-semibold">
       <div className="flex flex-col gap-12 md:gap-0 md:flex-row md:items w-full px-12 sm:px-24 md:px-12 lg:px-24 min-h-80 mb-12">
         <section className="flex flex-col w-full md:w-1/2 md:pr-6 lg:pr-12">
           <h1>We will be happy to hear from you.</h1>
-          <form
-            action=""
+          <fetcher.Form
+            method="post"
             className="flex flex-col py-6 gap-6 text-xl font-light md:pr-2 lg:pr-12"
           >
-            <input type="text" placeholder="NAME" className="border-b-1 pb-1 focus:outline-0" />
-            <input
-              type="email"
-              placeholder="E-MAIL"
-              className="border-b-1 pb-1 focus:outline-0"
-            />
-            <input type="tel" placeholder="PHONE" className="border-b-1 pb-1 focus:outline-0" />
-            <textarea
-              name="message"
-              rows={4}
-              cols={50}
-              placeholder="MESSAGE"
-              className="border-b-1 pb-1 focus:outline-0"
-            />
+            <div>
+              <input name="name" type="text" placeholder="NAME" className="w-full border-b-1 pb-1 focus:outline-0" />
+              {
+                result && result.errors['name']
+                  ? <p>{result.errors['name']}</p>
+                  : null
+              }
+            </div>
+
+            <div>
+              <input
+                name="email"
+                type="email"
+                placeholder="E-MAIL"
+                className="w-full border-b-1 pb-1 focus:outline-0"
+              />
+              {
+                result && result.errors['email']
+                  ? <p>{result.errors['email']}</p>
+                  : null
+              }
+            </div>
+
+            <div>
+              <input name="phone" type="tel" placeholder="PHONE" className="w-full border-b-1 pb-1 focus:outline-0" />
+              {
+                result && result.errors['phone']
+                  ? <p>{result.errors['phone']}</p>
+                  : null
+              }
+            </div>
+
+            <div>
+              <textarea
+                name="message"
+                rows={4}
+                cols={50}
+                placeholder="MESSAGE"
+                className="w-full border-b-1 pb-1 focus:outline-0"
+              />
+              {
+                result && result.errors['message']
+                  ? <p>{result.errors['message']}</p>
+                  : null
+              }
+            </div>
+
             <div className="w-full flex justify-center mt-10">
               <button className="shadow-md rounded-xl w-3/5 shadow-gray-400 py-2 hover:scale-95 hover:brightness-75">
                 SUBMIT MESSAGE
               </button>
             </div>
-          </form>
+          </fetcher.Form>
         </section>
 
         {/* Footer */}
