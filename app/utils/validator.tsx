@@ -27,19 +27,19 @@ export function contactUsValidator(formData: FormData) {
       const sanitized: string = sanitize(val as string);
       if (isEmpty(sanitized)) {
         result.success = false;
-        result.errors[key] = `Please insert your ${key}`;
+        result.errors[key] = `Please insert your ${key === 'email' ? 'e-mail' : key}`;
         continue;
       }
 
       if (key === 'email' && !isEmail(sanitized, { allow_underscores: true })) {
         result.success = false;
-        result.errors[key] = `Email is invalid`;
+        result.errors[key] = `E-mail is invalid`;
         continue;
       }
 
       if (key === 'phone' && !isMobilePhone(sanitized)) {
         result.success = false;
-        result.errors[key] = `Phone number is invalid`;
+        result.errors[key] = `Phone number is invalid. Please remove any separator like dash (-) or dot (.)`;
         continue;
       }
 
