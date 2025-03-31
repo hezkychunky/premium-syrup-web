@@ -9,11 +9,11 @@ export function meta({}: Route.MetaArgs) {
 
 export default function AboutUs() {
   return (
-    <div className="flex flex-col flex-grow gap-12 pl-6 pt-48 text-4xl font-light">
-      <h1>
+    <div className="flex flex-col flex-grow items-center lg:items-start gap-12 px-6 sm:px-12 pt-36 lg:pt-48 text-4xl font-light">
+      <h1 className="text-center">
         BEST <b>SYRUP</b> FOR ANY BEVERAGES
       </h1>
-      <div className="flex flex-col gap-8 text-2xl pr-32">
+      <div className="flex flex-col gap-8 text-xl sm:text-2xl pb-10 xl:pr-32">
         <p>
           Founded in <b>1968, Premium Syrup</b> has been committed to delivering
           high-quality syrup for all kinds of beverages. With decades of
