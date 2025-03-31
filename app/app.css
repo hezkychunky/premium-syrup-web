@@ -55,3 +55,7 @@ b {
   transition: max-height 500ms ease-out;
   max-height: 0;
 }
+
+.form-error {
+  color: #d54d5d; /* grenadine background color */
+}

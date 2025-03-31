@@ -1,5 +1,5 @@
-import { Link } from "react-router";
-import { useFetcher } from "react-router";
+import { useEffect, useState } from 'react';
+import { Link, useFetcher } from "react-router";
 
 import type { Route } from "./+types/contact-us";
 import { contactUsValidator } from "~/utils/validator";
@@ -27,6 +27,22 @@ export default function ContactUs() {
   const fetcher = useFetcher();
   const result = fetcher.data;
 
+  const [hasChanged, setHasChanged] = useState({
+    name: false,
+    email: false,
+    phone: false,
+    message: false,
+  });
+
+  useEffect(() => {
+    setHasChanged({
+      name: false,
+      email: false,
+      phone: false,
+      message: false,
+    });
+  }, [result]);
+
   return (
     <div className="flex flex-col flex-grow items-center pt-36 text-4xl font-semibold">
       <div className="flex flex-col gap-12 md:gap-0 md:flex-row md:items w-full px-12 sm:px-24 md:px-12 lg:px-24 min-h-80 mb-12">
@@ -37,10 +53,16 @@ export default function ContactUs() {
             className="flex flex-col py-6 gap-6 text-xl font-light md:pr-2 lg:pr-12"
           >
             <div>
-              <input name="name" type="text" placeholder="NAME" className="w-full border-b-1 pb-1 focus:outline-0" />
+              <input
+                name="name"
+                type="text"
+                placeholder="NAME"
+                className="w-full border-b-1 pb-1 focus:outline-0"
+                onChange={() => setHasChanged({ ...hasChanged, name: true })}
+              />
               {
-                result && result.errors['name']
-                  ? <p>{result.errors['name']}</p>
+                !hasChanged.name && result && result.errors['name']
+                  ? <p className="text-sm form-error">{result.errors['name']}</p>
                   : null
               }
             </div>
@@ -51,19 +73,26 @@ export default function ContactUs() {
                 type="email"
                 placeholder="E-MAIL"
                 className="w-full border-b-1 pb-1 focus:outline-0"
+                onChange={() => setHasChanged({ ...hasChanged, email: true })}
               />
               {
-                result && result.errors['email']
-                  ? <p>{result.errors['email']}</p>
+                 !hasChanged.email && result && result.errors['email']
+                  ? <p className="text-sm form-error">{result.errors['email']}</p>
                   : null
               }
             </div>
 
             <div>
-              <input name="phone" type="tel" placeholder="PHONE" className="w-full border-b-1 pb-1 focus:outline-0" />
+              <input
+                name="phone"
+                type="tel"
+                placeholder="PHONE"
+                className="w-full border-b-1 pb-1 focus:outline-0"
+                onChange={() => setHasChanged({ ...hasChanged, phone: true })}
+              />
               {
-                result && result.errors['phone']
-                  ? <p>{result.errors['phone']}</p>
+                !hasChanged.phone && result && result.errors['phone']
+                  ? <p className="text-sm form-error">{result.errors['phone']}</p>
                   : null
               }
             </div>
@@ -75,10 +104,11 @@ export default function ContactUs() {
                 cols={50}
                 placeholder="MESSAGE"
                 className="w-full border-b-1 pb-1 focus:outline-0"
+                onChange={() => setHasChanged({ ...hasChanged, message: true })}
               />
               {
-                result && result.errors['message']
-                  ? <p>{result.errors['message']}</p>
+                !hasChanged.message && result && result.errors['message']
+                  ? <p className="text-sm form-error">{result.errors['message']}</p>
                   : null
               }
             </div>
