@@ -5,6 +5,7 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --color-primary: #0e2a63;
   --color-secondary: #efeff1;
+  --modal-background: rgba(0, 0, 0, 0.2);
 }
 
 @layer components {

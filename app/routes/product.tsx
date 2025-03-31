@@ -39,7 +39,7 @@ export default function Product() {
         style={{ backgroundColor: productDetails?.theme }}
       ></div>
       <h1
-        className={`absolute w-[580px] top-[450px] -left-[200px] -rotate-90 whitespace-nowrap opacity-80 font-bold ${
+        className={`absolute w-[580px] top-[420px] -left-[200px] -rotate-90 whitespace-nowrap opacity-80 font-bold ${
           product!.toUpperCase().length <= 9 ? "text-8xl" : "text-7xl"
         }`}
         style={{ color: productDetails?.theme }}

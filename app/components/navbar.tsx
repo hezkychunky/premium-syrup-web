@@ -16,9 +16,9 @@ export default function Navbar() {
   const navMenus = ["news", "faq", "contact us"];
 
   const productCategories = [
-    "fruity delights",
-    "coffee delights",
-    "unique delights",
+    { category: "fruity delights", image: "/icons/grenadine-icon.png" },
+    { category: "coffee delights", image: "/icons/caramel-icon.png" },
+    { category: "unique delights", image: "/icons/bubble-gum-icon.png" },
   ];
 
   const recipeCategories = [
@@ -206,27 +206,34 @@ export default function Navbar() {
         {openDrawer === "products" && (
           <ul className="flex items-center justify-evenly pl-8">
             <li>
-              <NavLink
-                to={"/products"}
-                className={({ isActive }) => (isActive ? "active-light" : "")}
-                end
-              >
-                <b className="block">ALL</b> PRODUCTS
-              </NavLink>
+              <div className="relative group">
+                <div className="mb-[6px]">
+                  <NavLink
+                    to={"/products"}
+                    className={({ isActive }) =>
+                      isActive ? "active-light" : ""
+                    }
+                    end
+                  >
+                    <b className="block">ALL</b> PRODUCTS
+                  </NavLink>
+                </div>
+                <span className="absolute bottom-0 left-0 w-0 h-[3px] bg-white transition-all duration-200 group-hover:w-full"></span>
+              </div>
             </li>
-            {productCategories.map((category, index) => {
-              const words = category.split(" ");
+            {productCategories.map((item, index) => {
+              const words = item.category.split(" ");
               return (
                 <li key={index} className="flex items-center w-44">
                   <div className="h-40 w-16 overflow-hidden">
                     <img
-                      src="/icons/vanilla-small.png"
-                      alt="Grenadine"
+                      src={item.image}
+                      alt={item.category}
                       className="h-40"
                     />
                   </div>
                   <NavLink
-                    to={`/products/${category.replace(/\s/, "-")}`}
+                    to={`/products/${item.category.replace(/\s/, "-")}`}
                     className={({ isActive }) =>
                       isActive ? "active-light" : ""
                     }

@@ -26,19 +26,19 @@ const IngredientsCard: React.FC<IngredientsCardProps> = ({
           <li className="flex justify-between py-1.5">
             <p>PREMIUM® LYCHEE</p>
             <p className="font-semibold rounded-2xl text-center text-lg w-[100px] bg-gray-300">
-              20 ML
+              {20} ML
             </p>
           </li>
           <li className="flex justify-between py-1.5">
             <p>SODA WATER</p>
             <p className="font-semibold rounded-2xl text-center text-lg w-[100px] bg-gray-300">
-              200 ML
+              {200} ML
             </p>
           </li>
           <li className="flex justify-between py-1.5">
             <p>YAKULT</p>
             <p className="font-semibold rounded-2xl text-center text-lg w-[100px] bg-gray-300">
-              30 ML
+              {30} ML
             </p>
           </li>
           <li className="flex justify-between py-1.5">

@@ -15,9 +15,9 @@ const ShopModal: React.FC<ShopModalProps> = ({
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 flex items-center justify-center z-50"
+      className="fixed inset-0 flex items-center justify-center z-50 bg-[theme(--modal-background)]"
     >
-      <div className="bg-[theme(--color-secondary)] p-6 rounded-4xl border-[2.5px] border-gray-600 w-3xl h-60">
+      <div className="bg-[theme(--color-secondary)] p-6 rounded-4xl border-[2.5px] border-gray-600 w-3xl h-36 mx-5 sm:mx-0 sm:h-60">
         <section className="flex justify-evenly items-center w-full h-full">
           <Link className="w-1/2" to={tokopedia} target="_blank">
             <img

@@ -22,7 +22,7 @@ export default function Faq() {
 
   return (
     <div className="flex flex-grow flex-col gap-8 items-center pt-36 pb-10 font-light">
-      <h1 className="text-4xl">
+      <h1 className="text-2xl md:text-4xl">
         PREMIUM® SYRUP <b className="font-extrabold">FAQ’s</b>
       </h1>
       <div className="flex flex-col gap-6 w-3/4 lg:w-3/5">
@@ -34,9 +34,14 @@ export default function Faq() {
             <span className="pb-1">
               {openDrawer.includes("ordering") ? "-" : "+"}
             </span>
-            <h1 className="text-3xl font-semibold">ORDERING</h1>
+            <h1 className="text-xl md:text-3xl font-semibold">ORDERING</h1>
           </button>
-          {openDrawer.includes("ordering") && (
+          <div
+            id="ordering"
+            className={`flex flex-col overflow-hidden expandable-children ${
+              openDrawer.includes("ordering") ? "open" : "close"
+            }`}
+          >
             <ul className="list-disc ml-10 text-base mt-2">
               <li>
                 Visit our website at{" "}
@@ -49,7 +54,7 @@ export default function Faq() {
                 the purchase page or marketplace catalog.
               </li>
             </ul>
-          )}
+          </div>
         </section>
         <section>
           <button
@@ -59,15 +64,21 @@ export default function Faq() {
             <span className="pb-1">
               {openDrawer.includes("product-stock") ? "-" : "+"}
             </span>
-            <h1 className="text-3xl font-semibold">PRODUCT STOCK</h1>
+            <h1 className="text-xl md:text-3xl font-semibold">PRODUCT STOCK</h1>
           </button>
-          {openDrawer.includes("product-stock") && (
+          {/* {openDrawer.includes("product-stock") && ( */}
+          <div
+            className={`flex flex-col overflow-hidden expandable-children ${
+              openDrawer.includes("product-stock") ? "open" : "close"
+            }`}
+          >
             <p className="text-base pl-5 mt-2">
               For details, stock availability, and prices, visit
               <b> www.premiumsyrup.com</b> or contact our admin via{" "}
               <b>Tokopedia</b> and <b>Shopee</b> .
             </p>
-          )}
+          </div>
+          {/* )} */}
         </section>
         <section>
           <button
@@ -77,9 +88,13 @@ export default function Faq() {
             <span className="pb-1">
               {openDrawer.includes("shipping") ? "-" : "+"}
             </span>
-            <h1 className="text-3xl font-semibold">SHIPPING</h1>
+            <h1 className="text-xl md:text-3xl font-semibold">SHIPPING</h1>
           </button>
-          {openDrawer.includes("shipping") && (
+          <div
+            className={`flex flex-col overflow-hidden expandable-children ${
+              openDrawer.includes("shipping") ? "open" : "close"
+            }`}
+          >
             <p className="text-base pl-5 mt-2">
               Standard delivery takes approximately 1-2 business days within
               Indonesia. If delivery exceeds the maximum estimated time, it is
@@ -87,7 +102,7 @@ export default function Faq() {
               address, the recipient's phone number being unreachable, or the
               selected item being out of stock.
             </p>
-          )}
+          </div>
         </section>
       </div>
     </div>
