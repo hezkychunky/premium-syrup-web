@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link, useFetcher } from "react-router";
+import { data, Link, useFetcher } from "react-router";
+import sanitize from 'sanitize-html';
 
 import type { Route } from "./+types/contact-us";
 import { contactUsValidator } from "~/utils/validator";
+import { createHTTP } from '~/utils/apiRequest';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -12,21 +14,44 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function action({ request }: Route.ActionArgs) {
-  const formData = await request.formData();
-  const result = contactUsValidator(formData);
+  try {
+    const formData = await request.formData();
+    const payload: { [key: string]: string } = {};
 
-  if (!result.data.success) {
-    return result;
+    // sanitize all inputs
+    for (let [key, val] of formData) {
+      payload[key] = sanitize(val as string);
+    }
+
+    const result = contactUsValidator(payload);
+    if (!result.valid) {
+      return data(
+        { ...result, success: false },
+        { status: 200 },
+      );
+    }
+
+    // Send e-mail to user from API
+    const http = createHTTP('server');
+    await http.post('/send-email', { ...payload });
+
+    return data(
+      { ...result, success: true },
+      { status: 200 },
+    );
+  } catch (error) {
+    return data(
+      { success: false, errorMsg: 'An error occured. Please contact us later' },
+      { status: 200 },
+    );
   }
-
-  // TODO: send to API
-  return result;
 }
 
 export default function ContactUs() {
   const fetcher = useFetcher();
   const result = fetcher.data;
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasChanged, setHasChanged] = useState({
     name: false,
     email: false,
@@ -41,6 +66,8 @@ export default function ContactUs() {
       phone: false,
       message: false,
     });
+
+    setIsSubmitting(false);
   }, [result]);
 
   return (
@@ -50,6 +77,7 @@ export default function ContactUs() {
           <h1>We will be happy to hear from you.</h1>
           <fetcher.Form
             method="post"
+            onSubmit={() => setIsSubmitting(true)}
             className="flex flex-col py-6 gap-6 text-xl font-light md:pr-2 lg:pr-12"
           >
             <div>
@@ -114,8 +142,11 @@ export default function ContactUs() {
             </div>
 
             <div className="w-full flex justify-center mt-10">
-              <button className="shadow-md rounded-xl w-3/5 shadow-gray-400 py-2 hover:scale-95 hover:brightness-75">
-                SUBMIT MESSAGE
+              <button
+                disabled={isSubmitting}
+                className="shadow-md rounded-xl w-3/5 shadow-gray-400 py-2 hover:scale-95 hover:brightness-75 disabled:cursor-not-allowed"
+              >
+                { isSubmitting ? 'SUBMITTING...' : 'SUBMIT MESSAGE' }
               </button>
             </div>
           </fetcher.Form>

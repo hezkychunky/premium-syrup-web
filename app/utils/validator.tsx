@@ -1,13 +1,7 @@
-import { data } from 'react-router';
-
 import validator from 'validator';
-import sanitize from 'sanitize-html';
 
 type ValidatorResponse = {
-  success: boolean,
-  value: {
-    [key: string]: string
-  },
+  valid: boolean,
   errors: {
     [key: string]: string
   },
@@ -15,40 +9,37 @@ type ValidatorResponse = {
 };
 
 const { isEmpty, isEmail, isMobilePhone } = validator;
-export function contactUsValidator(formData: FormData) {
+export function contactUsValidator(formData: { [key: string]: string }) {
   const result: ValidatorResponse = {
-    success: true,
-    value: {},
+    valid: true,
     errors: {},
   };
 
   try {
-    for (let [key, val] of formData) {
-      const sanitized: string = sanitize(val as string);
-      if (isEmpty(sanitized)) {
-        result.success = false;
+    for (let key in formData) {
+      const val = formData[key];
+      if (isEmpty(val)) {
+        result.valid = false;
         result.errors[key] = `Please insert your ${key === 'email' ? 'e-mail' : key}`;
         continue;
       }
 
-      if (key === 'email' && !isEmail(sanitized, { allow_underscores: true })) {
-        result.success = false;
+      if (key === 'email' && !isEmail(val, { allow_underscores: true })) {
+        result.valid = false;
         result.errors[key] = `E-mail is invalid`;
         continue;
       }
 
-      if (key === 'phone' && !isMobilePhone(sanitized)) {
-        result.success = false;
+      if (key === 'phone' && !isMobilePhone(val)) {
+        result.valid = false;
         result.errors[key] = `Phone number is invalid. Please remove any separator like dash (-) or dot (.)`;
         continue;
       }
-
-      result.value[key] = sanitized;
     }
   } catch (error: any) {
-    result.success = false;
+    result.valid = false;
     result.errorMsg = 'An error occured. Please contact us later';
   }
 
-  return data(result, { status: 200 });
+  return result;
 }
