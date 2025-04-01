@@ -51,7 +51,6 @@ export default function ContactUs() {
   const fetcher = useFetcher();
   const result = fetcher.data;
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasChanged, setHasChanged] = useState({
     name: false,
     email: false,
@@ -67,7 +66,10 @@ export default function ContactUs() {
       message: false,
     });
 
-    setIsSubmitting(false);
+    if (result && result.valid && result.success) {
+      alert('Your message has been sent successfully!');
+      document.querySelector('form')?.reset();
+    }
   }, [result]);
 
   return (
@@ -77,7 +79,6 @@ export default function ContactUs() {
           <h1>We will be happy to hear from you.</h1>
           <fetcher.Form
             method="post"
-            onSubmit={() => setIsSubmitting(true)}
             className="flex flex-col py-6 gap-6 text-xl font-light md:pr-2 lg:pr-12"
           >
             <div>
@@ -143,10 +144,10 @@ export default function ContactUs() {
 
             <div className="w-full flex justify-center mt-10">
               <button
-                disabled={isSubmitting}
+                disabled={fetcher.state === 'submitting'}
                 className="shadow-md rounded-xl w-3/5 shadow-gray-400 py-2 hover:scale-95 hover:brightness-75 disabled:cursor-not-allowed"
               >
-                { isSubmitting ? 'SUBMITTING...' : 'SUBMIT MESSAGE' }
+                { fetcher.state === 'submitting' ? 'SUBMITTING...' : 'SUBMIT MESSAGE' }
               </button>
             </div>
           </fetcher.Form>
