@@ -304,6 +304,7 @@ export default function Navbar() {
                 key={drawer.title}
                 drawer={drawer.title}
                 children={drawer.children}
+                onItemClick={() => setSidebarOpen(false)}
               />
             </div>
           ))}

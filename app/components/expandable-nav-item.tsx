@@ -4,11 +4,13 @@ import { NavLink, useLocation } from "react-router";
 type ExpandableNavItemProps = {
   drawer: string;
   children: { title: string; to: string }[];
+  onItemClick: () => void;
 };
 
 export default function ExpandableNavItem({
   drawer,
   children,
+  onItemClick,
 }: ExpandableNavItemProps) {
   const pageLocation = useLocation();
   const [isOpen, setIsOpen] = useState(false);
@@ -33,6 +35,7 @@ export default function ExpandableNavItem({
             key={item.title}
             to={item.to}
             className={() => isNavLinkActive(item.to)}
+            onClick={onItemClick}
             viewTransition
           >
             {item.title.toUpperCase()}
