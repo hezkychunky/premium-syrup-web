@@ -13,7 +13,7 @@ export default function Recipes() {
   return (
     <div className="flex flex-col flex-grow items-center pt-36 text-3xl font-light">
       <h1>ALL RECIPES</h1>
-      <section className="flex flex-wrap justify-between px-20 mt-32 gap-12">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 px-20 mt-32 gap-12">
         <NavLink to={`/recipes/${"category"}/${"recipename"}`}>
           <RecipeCard
             image={""}
