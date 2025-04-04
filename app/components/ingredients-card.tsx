@@ -27,7 +27,7 @@ const IngredientsCard: React.FC<IngredientsCardProps> = ({
   const [volumeUnit, setVolumeUnit] = useState<'ml' | 'oz'>('ml');
 
   return (
-    <div className="flex flex-col w-[400px] min-h-[400px] rounded-xs border-2">
+    <div className="flex flex-col max-[450px]:w-72 w-96 min-h-[400px] rounded-xs border-2">
       <section className="flex border-b-2 text-2xl items-center justify-between h-[55px] px-2">
         <div>
           <h1 className="font-semibold">INGREDIENTS</h1>
@@ -38,25 +38,25 @@ const IngredientsCard: React.FC<IngredientsCardProps> = ({
       </section>
       <section className="flex border-b-2 p-2 text-xl min-h-[250px]">
         <ul className="w-full">
-          <li className="flex justify-between py-1.5">
+          <li className="flex justify-between items-start py-1.5">
             <p>PREMIUM® LYCHEE</p>
             <p className="font-semibold rounded-2xl text-center text-lg w-[100px] bg-gray-300">
               {showVolumeByUnit(20, volumeUnit)}
             </p>
           </li>
-          <li className="flex justify-between py-1.5">
+          <li className="flex justify-between items-start py-1.5">
             <p>SODA WATER</p>
             <p className="font-semibold rounded-2xl text-center text-lg w-[100px] bg-gray-300">
               {showVolumeByUnit(200, volumeUnit)}
             </p>
           </li>
-          <li className="flex justify-between py-1.5">
+          <li className="flex justify-between items-start py-1.5">
             <p>YAKULT</p>
             <p className="font-semibold rounded-2xl text-center text-lg w-[100px] bg-gray-300">
               {showVolumeByUnit(30, volumeUnit)}
             </p>
           </li>
-          <li className="flex justify-between py-1.5">
+          <li className="flex justify-between items-start py-1.5">
             <p>LYCHEE</p>
             <p className="font-semibold rounded-2xl text-center text-lg w-[100px] bg-gray-300">
               2 PCS
@@ -64,22 +64,22 @@ const IngredientsCard: React.FC<IngredientsCardProps> = ({
           </li>
         </ul>
       </section>
-      <section className="flex border-b-2 justify-between h-55px]">
-        <div className="flex flex-col w-[120px] text-sm items-center border-r-2 h-full">
+      <section className="flex border-b-2 justify-between h-55px">
+        <div className="flex flex-col flex-4 text-sm items-center border-r-2 h-full">
           <h2>Prep TIme</h2>
           <p className="text-lg font-semibold">10 MIN</p>
         </div>
-        <div className="flex text-lg justify-evenly flex-grow items-center py-2">
+        <div className="flex flex-6 text-lg justify-evenly items-center py-2 px-4 gap-4">
           <button
             disabled={volumeUnit == 'ml'}
-            className={`rounded-2xl shadow-md border-2 font-semibold w-[80px] ${volumeUnit === 'ml' ? 'text-white bg-primary border-primary cursor-default' : 'active:bg-gray-300'}`}
+            className={`flex-1 rounded-2xl shadow-md border-2 font-semibold ${volumeUnit === 'ml' ? 'text-white bg-primary border-primary cursor-default' : 'active:bg-gray-300'}`}
             onClick={() => setVolumeUnit('ml')}
           >
             ML
           </button>
           <button
             disabled={volumeUnit == 'oz'}
-            className={`rounded-2xl shadow-md border-2 font-semibold w-[80px] ${volumeUnit === 'oz' ? 'text-white bg-primary border-primary cursor-default' : 'active:bg-gray-300'}`}
+            className={`flex-1 rounded-2xl shadow-md border-2 font-semibold ${volumeUnit === 'oz' ? 'text-white bg-primary border-primary cursor-default' : 'active:bg-gray-300'}`}
             onClick={() => setVolumeUnit('oz')}
           >
             OZ
