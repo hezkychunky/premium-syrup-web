@@ -8,7 +8,7 @@ interface RecipeCardProps {
 
 const RecipeCard: React.FC<RecipeCardProps> = ({ image, base, title }) => {
   return (
-    <div className="flex flex-col w-72 h-96 rounded-xl border-2 border-gray-400 hover:scale-110">
+    <div className="flex flex-col max-[374px]:w-full max-[374px]:h-auto aspect-3/4 w-72 h-96 rounded-xl border-2 border-gray-400 hover:scale-110">
       <div className="h-4/5 bg-gray-300 m-2 overflow-hidden">
         <img src={image ? image : ""} alt="recipe category image" />
       </div>
