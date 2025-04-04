@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface IngredientsCardProps {
   image?: string | null;
@@ -6,11 +6,26 @@ interface IngredientsCardProps {
   title?: string;
 }
 
+const ML_TO_OZ = 0.033814;
+
+/**
+ * Convert volume, in ml by default, to oz by 2 decimal places
+ */
+const showVolumeByUnit = (volume: number, unit: 'ml' | 'oz' = 'ml'): string => {
+  if (unit === 'oz') {
+    return `${(Math.round(volume * ML_TO_OZ * 100) / 100).toFixed(2)} OZ`;
+  }
+
+  return `${volume} ML`;
+}
+
 const IngredientsCard: React.FC<IngredientsCardProps> = ({
   image,
   base,
   title,
 }) => {
+  const [volumeUnit, setVolumeUnit] = useState<'ml' | 'oz'>('ml');
+
   return (
     <div className="flex flex-col w-[400px] min-h-[400px] rounded-xs border-2">
       <section className="flex border-b-2 text-2xl items-center justify-between h-[55px] px-2">
@@ -26,19 +41,19 @@ const IngredientsCard: React.FC<IngredientsCardProps> = ({
           <li className="flex justify-between py-1.5">
             <p>PREMIUM® LYCHEE</p>
             <p className="font-semibold rounded-2xl text-center text-lg w-[100px] bg-gray-300">
-              {20} ML
+              {showVolumeByUnit(20, volumeUnit)}
             </p>
           </li>
           <li className="flex justify-between py-1.5">
             <p>SODA WATER</p>
             <p className="font-semibold rounded-2xl text-center text-lg w-[100px] bg-gray-300">
-              {200} ML
+              {showVolumeByUnit(200, volumeUnit)}
             </p>
           </li>
           <li className="flex justify-between py-1.5">
             <p>YAKULT</p>
             <p className="font-semibold rounded-2xl text-center text-lg w-[100px] bg-gray-300">
-              {30} ML
+              {showVolumeByUnit(30, volumeUnit)}
             </p>
           </li>
           <li className="flex justify-between py-1.5">
@@ -55,10 +70,18 @@ const IngredientsCard: React.FC<IngredientsCardProps> = ({
           <p className="text-lg font-semibold">10 MIN</p>
         </div>
         <div className="flex text-lg justify-evenly flex-grow items-center py-2">
-          <button className="rounded-2xl shadow-md border-2 font-semibold w-[80px]">
+          <button
+            disabled={volumeUnit == 'ml'}
+            className={`rounded-2xl shadow-md border-2 font-semibold w-[80px] ${volumeUnit === 'ml' ? 'text-white bg-primary border-primary cursor-default' : 'active:bg-gray-300'}`}
+            onClick={() => setVolumeUnit('ml')}
+          >
             ML
           </button>
-          <button className="rounded-2xl shadow-md border-2 font-semibold w-[80px]">
+          <button
+            disabled={volumeUnit == 'oz'}
+            className={`rounded-2xl shadow-md border-2 font-semibold w-[80px] ${volumeUnit === 'oz' ? 'text-white bg-primary border-primary cursor-default' : 'active:bg-gray-300'}`}
+            onClick={() => setVolumeUnit('oz')}
+          >
             OZ
           </button>
         </div>
