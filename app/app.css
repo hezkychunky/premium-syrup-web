@@ -65,6 +65,19 @@ b {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
+#news-title {
+  font-weight: 500;
+}
+
+#news-time {
+  font-size: 14px;
+}
+
+#news-content {
+  font-size: 16px;
+  margin-bottom: 36px;
+}
+
 @media screen and (width < 670px) {
   .recipes-grid-col {
     grid-template-columns: repeat(1, minmax(0, 1fr));

@@ -32,6 +32,6 @@ export default [
   //NEWS nested dynamic route
   ...prefix("news", [
     index("./routes/news.tsx"),
-    route(":article", "./routes/news-article.tsx"),
+    route(":slug", "./routes/news-article.tsx"),
   ]),
 ] satisfies RouteConfig;

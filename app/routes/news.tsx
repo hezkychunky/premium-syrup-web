@@ -21,6 +21,7 @@ type News = {
   title: string;
   slug: string;
   content: string;
+  date: string;
 };
 
 export default function News({ loaderData }: Route.ComponentProps) {
