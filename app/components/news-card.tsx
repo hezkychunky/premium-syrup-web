@@ -18,7 +18,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ image, title, slug, content }) => {
       />
       <div className="flex flex-col justify-center text-xl items-center md:w-4/6 md:items-start">
         <h1 className="font-semibold mt-4 md:mt-0">{title}</h1>
-        <p className="text-sm lg:max-w-120">{content.substring(0, 150)}...</p>
+        <p className="text-sm line-clamp-2 lg:line-clamp-3 lg:max-w-120">{content.substring(0, 150)}...</p>
         <Link
           viewTransition
           to={`/news/${slug}`}
