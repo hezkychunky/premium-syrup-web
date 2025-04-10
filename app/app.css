@@ -14,6 +14,10 @@
   }
 }
 
+:root {
+  color-scheme: only light;
+}
+
 a.active {
   font-weight: bold;
   text-decoration-color: #0e2a63;
