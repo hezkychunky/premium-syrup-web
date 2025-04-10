@@ -29,17 +29,17 @@ export default function NewsArticle({ loaderData }: Route.ComponentProps) {
   const news: News = loaderData as any;
 
   return (
-    <main className="px-16 md:px-24 lg:px-48 xl:px-72 2xl:px-96 pt-28 md:pt-36">
+    <main className="px-12 md:px-24 lg:px-48 xl:px-72 2xl:px-96 pt-28 md:pt-36">
       <h1 id="news-title" className="text-[22px] md:text-[36px]">{news.title}</h1>
       <p id="news-time">
         {dayjs(news.date).locale('id').format('dddd, DD/MM/YYYY HH:mm:ss')}
       </p>
 
-      <figure className="flex justify-center align-center">
+      <figure className="flex justify-center align-center mt-4 mb-6 lg:mt-8 lg:mb-12">
         <img
           alt={news.title}
           src={news.image}
-          className="mt-8 mb-12 rounded-2xl md:w-180"
+          className="rounded-2xl md:w-180"
         />
       </figure>
       

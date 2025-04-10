@@ -26,7 +26,7 @@ type News = {
 
 export default function News({ loaderData }: Route.ComponentProps) {
   return (
-    <div className="flex flex-grow flex-col items-center lg:gap-4 lg:items-start lg:px-28 px-24 md:px-12 pt-36 lg:pt-48 text-3xl font-light">
+    <div className="flex flex-grow flex-col items-center news-list text-3xl font-light">
       {
         loaderData.map((news: News) => {
           return (
