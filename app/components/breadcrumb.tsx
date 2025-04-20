@@ -8,7 +8,7 @@ interface BreadcrumbProps {
 
 const Breadcrumb = ({ prefix, param1, param2 }: BreadcrumbProps) => {
   return (
-    <div className="text-lg">
+    <div className="text-sm sm:text-lg">
       <NavLink to={`/${prefix}`} className="hover:font-semibold" end>
         {prefix.toUpperCase()}
       </NavLink>{" "}

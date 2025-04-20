@@ -10,11 +10,12 @@ export function meta({}: Route.MetaArgs) {
 
 export default function ProductKnowledge() {
   return (
-    <div className="flex flex-col flex-grow gap-12 pl-6 pt-48 text-4xl font-light">
-      <h1>
+    <div className="flex flex-col flex-grow gap-12 px-6 md:px-16 lg:px-10 pt-36 lg:pt-48 text-3xl sm:text-4xl font-light">
+      <h1 className="text-center lg:text-start">
         KNOW OUR <b>3</b> TASTES
       </h1>
-      <section className="flex justify-evenly">
+
+      <section className="flex flex-wrap justify-center sm:justify-between gap-10 lg:gap-0 lg:justify-evenly">
         <TastesCard
           preTitle="TROPICAL"
           boldTitle="FRUIT"
@@ -44,7 +45,7 @@ export default function ProductKnowledge() {
           description="Pandan, Palm Sugar, Rose, Elderflower, Bubble Gum, Taro, Mint."
         />
       </section>
-      <section className="flex flex-col gap-8 text-2xl pr-32 mb-10">
+      <section className="flex flex-col gap-8 text-2xl lg:pr-32 mb-10">
         <h2>
           We take pride in offering three <b>key advantages</b> that set us
           apart:

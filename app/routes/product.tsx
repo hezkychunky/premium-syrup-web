@@ -30,7 +30,7 @@ export default function Product() {
   };
 
   return (
-    <div className="relative flex flex-col flex-grow items-center pt-36 text-3xl font-light">
+    <div className="relative flex flex-col flex-grow items-center pt-32 sm:text-3xl text-2xl font-light">
       {isShopModalOpen && (
         <ShopModal tokopedia="" shopee="" onClose={handleCloseModal} />
       )}
@@ -39,26 +39,26 @@ export default function Product() {
         style={{ backgroundColor: productDetails?.theme }}
       ></div>
       <h1
-        className={`absolute w-[580px] top-[420px] -left-[200px] -rotate-90 whitespace-nowrap opacity-80 font-bold ${
-          product!.toUpperCase().length <= 9 ? "text-8xl" : "text-7xl"
+        className={`absolute sm:w-[580px] sm:top-[420px] top-[370px] sm:-left-[200px] -left-[150px] -rotate-90 whitespace-nowrap opacity-80 font-bold ${
+          product!.toUpperCase().length <= 9
+            ? "sm:text-8xl text-6xl"
+            : "sm:text-7xl text-6xl"
         }`}
         style={{ color: productDetails?.theme }}
       >
         {productDetails ? productDetails?.name.toUpperCase() : "Not Found"}
       </h1>
-      <div className="flex flex-col lg:flex-row lg:gap-2 w-screen min-h-[600px] px-12">
+      <div className="flex flex-col lg:flex-row lg:gap-2 w-screen min-h-[600px] px-5 sm:px-12 mb-4">
         <section className="mb-12 lg:mb-0 lg:w-1/2">
-          <div className="text-lg">
+          <div className="text-lg mb-10">
             <Breadcrumb prefix="products" param1={category} param2={product} />
           </div>
           <div className="flex flex-grow h-full w-full">
-            <div className="flex items-center justify-center max-w-[150px]"></div>
-            <div className="flex flex-grow justify-end pr-36 h-full]">
+            <div className="flex flex-grow justify-end sm:pr-28 h-full]">
               <img
-                src={productDetails?.image}
-                // src="/products/grenadine-detail-1.png"
+                src={productDetails?.detail1}
                 alt={`${productDetails?.image} image`}
-                className="h-[580px]"
+                className="sm:h-[580px]"
               />
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function Product() {
         <section className="mb-12 flex flex-col justify-between items-center lg:w-1/2 z-30">
           <div className="py-4">
             <h1 className="mb-4 font-bold">DESCRIPTION</h1>
-            <p className="text-2xl">
+            <p className="sm:text-2xl text-xl">
               Premium® Grenadine delivers a refreshing balance of sweetness and
               tanginess, enriched by the vibrant red hue and the fresh aroma of
               pomegranate. Perfect for elevating your drinks with fruity depth
@@ -75,11 +75,11 @@ export default function Product() {
           </div>
           <div className="border-y-4 py-4 w-full">
             <h1 className="mb-4 font-bold">VOLUME</h1>
-            <p className="text-2xl">{productDetails?.volume}ml</p>
+            <p className="sm:text-2xl text-xl">{productDetails?.volume}ml</p>
           </div>
-          <div className="py-4">
+          <div className="py-4 pb-12">
             <h1 className="mb-4 font-bold">INGREDIENTS</h1>
-            <p className="text-2xl">
+            <p className="sm:text-2xl text-xl">
               Granulated Sugar, Water, Acidity Regulator Citric Acid, Synthetic
               Pomegranate Flavoring, Preservative Potassium Sorbate, Salt,
               Synthetic Colorings (Ponceau 4R Cl 16255, Carmoisine Cl 14720)

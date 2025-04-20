@@ -95,7 +95,7 @@ export default function Navbar() {
         }`}
       >
         {/* Navigation Buttons */}
-        <section className="flex justify-center lg:justify-between items-center w-full text-lg xl:text-2xl overflow-hidden">
+        <section className="flex justify-center lg:justify-between items-center w-full text-sm xl:text-lg overflow-hidden">
           <section>
             <button onClick={() => setOpenDrawer(null)}>
               <Link to={"/"}>

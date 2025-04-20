@@ -44,7 +44,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-20 min-h-screen pt-40 mb-12">
+    <div className="flex flex-col min-h-screen pt-20 sm:pt-24 mb-12">
       <Carousel items={carouselItems} />
       <Carousel items={otherContent} />
       <Carousel items={otherContent} />

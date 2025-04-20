@@ -3,24 +3,21 @@
     "id": 1,
     "recipe-name": "Moonlit Lychee",
     "base-syrup": "premium® lychee",
+    "category": "Fruity Delights",
     "ingredients": [
       {
-        "id": 1,
         "item": "premium® lychee",
         "measurement": "20 ML"
       },
       {
-        "id": 2,
         "item": "soda water",
         "measurement": "200 ML"
       },
       {
-        "id": 3,
         "item": "yakult",
         "measurement": "30 ML"
       },
       {
-        "id": 4,
         "item": "lychee",
         "measurement": null
       }
@@ -32,6 +29,484 @@
       "sed diam nonummy nibh euismod tincidunt",
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
-    "theme": "#f38888"
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
+  },
+  {
+    "id": 2,
+    "recipe-name": "Dummy Recipe 1",
+    "base-syrup": "premium® lychee",
+    "category": "Fruity Delights",
+    "ingredients": [
+      {
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "item": "lychee",
+        "measurement": null
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
+  },
+  {
+    "id": 3,
+    "recipe-name": "Dummy Recipe 2",
+    "base-syrup": "premium® lychee",
+    "category": "Fruity Delights",
+    "ingredients": [
+      {
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "item": "lychee",
+        "measurement": null
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
+  },
+  {
+    "id": 4,
+    "recipe-name": "Dummy Recipe 3",
+    "base-syrup": "premium® lychee",
+    "category": "Fruity Delights",
+    "ingredients": [
+      {
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "item": "lychee",
+        "measurement": null
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
+  },
+  {
+    "id": 5,
+    "recipe-name": "Dummy Recipe 4",
+    "base-syrup": "premium® lychee",
+    "category": "Fruity Delights",
+    "ingredients": [
+      {
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "item": "lychee",
+        "measurement": null
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
+  },
+  {
+    "id": 6,
+    "recipe-name": "Dummy Recipe 5",
+    "base-syrup": "premium® lychee",
+    "category": "Coffee Delights",
+    "ingredients": [
+      {
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "item": "lychee",
+        "measurement": null
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
+  },
+  {
+    "id": 7,
+    "recipe-name": "Dummy Recipe 6",
+    "base-syrup": "premium® lychee",
+    "category": "Coffee Delights",
+    "ingredients": [
+      {
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "item": "lychee",
+        "measurement": null
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
+  },
+  {
+    "id": 8,
+    "recipe-name": "Dummy Recipe 7",
+    "base-syrup": "premium® lychee",
+    "category": "Coffee Delights",
+    "ingredients": [
+      {
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "item": "lychee",
+        "measurement": null
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
+  },
+  {
+    "id": 9,
+    "recipe-name": "Dummy Recipe 8",
+    "base-syrup": "premium® lychee",
+    "category": "Coffee Delights",
+    "ingredients": [
+      {
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "item": "lychee",
+        "measurement": null
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
+  },
+  {
+    "id": 10,
+    "recipe-name": "Dummy Recipe 9",
+    "base-syrup": "premium® lychee",
+    "category": "Coffee Delights",
+    "ingredients": [
+      {
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "item": "lychee",
+        "measurement": null
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
+  },
+  {
+    "id": 11,
+    "recipe-name": "Dummy Recipe 10",
+    "base-syrup": "premium® lychee",
+    "category": "Unique Delights",
+    "ingredients": [
+      {
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "item": "lychee",
+        "measurement": null
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
+  },
+  {
+    "id": 12,
+    "recipe-name": "Dummy Recipe 11",
+    "base-syrup": "premium® lychee",
+    "category": "Unique Delights",
+    "ingredients": [
+      {
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "item": "lychee",
+        "measurement": null
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
+  },
+  {
+    "id": 13,
+    "recipe-name": "Dummy Recipe 12",
+    "base-syrup": "premium® lychee",
+    "category": "Unique Delights",
+    "ingredients": [
+      {
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "item": "lychee",
+        "measurement": null
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
+  },
+  {
+    "id": 14,
+    "recipe-name": "Dummy Recipe 13",
+    "base-syrup": "premium® lychee",
+    "category": "Unique Delights",
+    "ingredients": [
+      {
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "item": "lychee",
+        "measurement": null
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
+  },
+  {
+    "id": 15,
+    "recipe-name": "Dummy Recipe 14",
+    "base-syrup": "premium® lychee",
+    "category": "Unique Delights",
+    "ingredients": [
+      {
+        "item": "premium® lychee",
+        "measurement": "20 ML"
+      },
+      {
+        "item": "soda water",
+        "measurement": "200 ML"
+      },
+      {
+        "item": "yakult",
+        "measurement": "30 ML"
+      },
+      {
+        "item": "lychee",
+        "measurement": null
+      }
+    ],
+    "prep-time": "10 MIN",
+    "steps": [
+      "Lorem ipsum dolor sit amet,",
+      "consectetuer adipiscing elit,",
+      "sed diam nonummy nibh euismod tincidunt",
+      "ut laoreet dolore magna aliquam erat volutpat"
+    ],
+    "theme": "#f38888",
+    "image1": "",
+    "image2": ""
   }
 ]
