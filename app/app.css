@@ -111,3 +111,12 @@ b {
     lg:gap-4 lg:items-start md:px-24 lg:px-28 lg:pt-40 lg:pb-12 /* large */
     px-12 pt-30 /* smaller than lg */
 }
+
+/* carousel */
+.carousel-prev {
+  @apply absolute left-0 z-10;
+}
+
+.carousel-next {
+  @apply absolute right-0 z-10;
+}

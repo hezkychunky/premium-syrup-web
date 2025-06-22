@@ -36,7 +36,20 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
   };
 
   return (
-    <div className="w-full mx-auto overflow-hidden">
+    <div className="w-full mx-auto overflow-hidden flex items-center justify-center">
+      {
+        items.length > 1
+          ?  <div className="carousel-prev pl-2">
+              <button
+                onClick={goToPrevious}
+                className="bg-gray-800 text-white p-4 rounded-full shadow-lg hover:bg-gray-700"
+              >
+                &#8592;
+              </button>
+            </div>
+          : null
+      }
+
       <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{
@@ -76,23 +89,18 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
         ))}
       </div>
 
-      {/* Navigation buttons */}
-      <div className="absolute top-1/2 left-6 transform -translate-y-1/2">
-        <button
-          onClick={goToPrevious}
-          className="bg-gray-800 text-white p-4 rounded-full shadow-lg hover:bg-gray-700"
-        >
-          &#8592;
-        </button>
-      </div>
-      <div className="absolute top-1/2 right-6 transform -translate-y-1/2">
-        <button
-          onClick={goToNext}
-          className="bg-gray-800 text-white p-4 rounded-full shadow-lg hover:bg-gray-700"
-        >
-          &#8594;
-        </button>
-      </div>
+      {
+        items.length > 1
+          ? <div className="carousel-next pr-2">
+              <button
+                onClick={goToNext}
+                className="bg-gray-800 text-white p-4 rounded-full shadow-lg hover:bg-gray-700"
+              >
+                &#8594;
+              </button>
+            </div>
+          : null
+      }
     </div>
   );
 };
