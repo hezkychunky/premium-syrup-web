@@ -13,25 +13,25 @@ const otherContent = [
 
 const carouselItems = [
   {
-    image: "/samples/carousel-1.jpg.webp",
-    alt: "Image 1",
-    title: "BEST SYRUP FOR EVERY BEVERAGE",
-    ctaText: "Learn More",
-    ctaLink: "#",
+    image: "/carousel/all_products.png",
+    alt: "All Products",
+    title: "",
+    ctaText: "",
+    ctaLink: "",
   },
   {
-    image: "/samples/carousel-2.jpg",
-    alt: "Image 2",
-    title: "Unleash the Power",
-    ctaText: "Explore Now",
-    ctaLink: "#",
+    image: "/carousel/premium_recipes.png",
+    alt: "Premium Recipes",
+    title: "",
+    ctaText: "",
+    ctaLink: "",
   },
   {
-    image: "/samples/carousel-3.webp.jpeg",
-    alt: "Image 3",
-    title: "Get Ready for the Future",
-    ctaText: "Shop Now",
-    ctaLink: "#",
+    image: "/carousel/marketplace.png",
+    alt: "Marketplace",
+    title: "",
+    ctaText: "",
+    ctaLink: "",
   },
 ];
 

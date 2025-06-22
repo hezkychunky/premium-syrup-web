@@ -60,12 +60,17 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
               <h2 className="text-3xl font-bold mb-4 bg-transparent backdrop-blur-xs">
                 {item.title}
               </h2>
-              <a
-                href={item.ctaLink}
-                className="bg-[theme(--color-secondary)] hover:brightness-95 text-gray-800 px-6 py-3 rounded-lg text-xl"
-              >
-                {item.ctaText}
-              </a>
+
+              {
+                item.ctaLink
+                ? <a
+                    href={item.ctaLink}
+                    className="bg-[theme(--color-secondary)] hover:brightness-95 text-gray-800 px-6 py-3 rounded-lg text-xl"
+                  >
+                    {item.ctaText}
+                  </a>
+                : null
+              }
             </div>
           </div>
         ))}
