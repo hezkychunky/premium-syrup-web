@@ -48,9 +48,9 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
           ?  <div className="carousel-prev pl-2">
               <button
                 onClick={goToPrevious}
-                className="bg-gray-800 text-white p-4 rounded-full shadow-lg hover:bg-gray-700"
+                className="bg-gray-800/20 text-white p-4 rounded-full shadow-lg hover:bg-gray-700"
               >
-                &#8592;
+                &lt;
               </button>
             </div>
           : null
@@ -100,9 +100,9 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
           ? <div className="carousel-next pr-2">
               <button
                 onClick={goToNext}
-                className="bg-gray-800 text-white p-4 rounded-full shadow-lg hover:bg-gray-700"
+                className="bg-gray-800/20 text-white p-4 rounded-full shadow-lg hover:bg-gray-700"
               >
-                &#8594;
+                &gt;
               </button>
             </div>
           : null
