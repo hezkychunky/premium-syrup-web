@@ -14,6 +14,7 @@ const otherContent = [
 const carouselItems = [
   {
     image: "/carousel/all_products.png",
+    bgColor: '#d0152c',
     alt: "All Products",
     title: "",
     ctaText: "",
@@ -21,6 +22,7 @@ const carouselItems = [
   },
   {
     image: "/carousel/premium_recipes.png",
+    bgColor: 'rgb(56, 118, 29)',
     alt: "Premium Recipes",
     title: "",
     ctaText: "",
@@ -28,6 +30,7 @@ const carouselItems = [
   },
   {
     image: "/carousel/marketplace.png",
+    bgColor: 'rgb(255, 217, 102)',
     alt: "Marketplace",
     title: "",
     ctaText: "",

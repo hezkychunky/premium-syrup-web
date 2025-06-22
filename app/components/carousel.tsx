@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 interface CarouselItem {
   image: string;
+  bgColor?: string; // Optional background color for the slide
   alt: string;
   title: string;
   ctaText: string;
@@ -36,7 +37,12 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
   };
 
   return (
-    <div className="w-full mx-auto overflow-hidden flex items-center justify-center">
+    <div
+      className="w-full mx-auto overflow-hidden flex items-center justify-center transition-colors duration-700 ease-in-out"
+      style={{
+        backgroundColor: items[currentIndex].bgColor || "transparent",
+      }}
+    >
       {
         items.length > 1
           ?  <div className="carousel-prev pl-2">
@@ -59,7 +65,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
         {items.map((item, index) => (
           <div
             key={index}
-            className="relative w-full flex-shrink-0"
+            className="relative w-full flex-shrink-0 my-auto"
             style={{ transition: "transform 0.7s ease-in-out" }}
           >
             <img
