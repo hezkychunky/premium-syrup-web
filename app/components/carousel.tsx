@@ -38,7 +38,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
 
   return (
     <div
-      className="relative w-8/12 rounded-lg mx-auto overflow-hidden flex items-center justify-center transition-colors duration-700 ease-in-out"
+      className="relative mx-auto overflow-hidden flex items-center justify-center transition-colors duration-700 ease-in-out"
       style={{
         backgroundColor: items[currentIndex].bgColor || "transparent",
       }}
