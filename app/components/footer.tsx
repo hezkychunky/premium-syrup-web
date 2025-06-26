@@ -5,7 +5,7 @@ export default function Footer() {
     <>
       <div className="min-h-32">
         <div className="flex flex-col sm:static mx-3 sm:mx-6 pt-3 sm:pt-6 h-full border-t-[2px] border-gray-500">
-          <section className="flex flex-col items-center mb-4 md:absolute text-sm">
+          <section className="flex flex-col mb-4 md:absolute text-sm">
             <h1 className="font-bold mb-1 sm:mb-3">
               PT. Karya Ciptanyata Wisesa
             </h1>

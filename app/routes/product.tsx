@@ -39,10 +39,8 @@ export default function Product() {
         style={{ backgroundColor: productDetails?.theme }}
       ></div>
       <h1
-        className={`absolute sm:w-[580px] sm:top-[420px] top-[370px] sm:-left-[200px] -left-[150px] -rotate-90 whitespace-nowrap opacity-80 font-bold ${
-          product!.toUpperCase().length <= 9
-            ? "sm:text-8xl text-6xl"
-            : "sm:text-7xl text-6xl"
+        className={`absolute sm:w-[580px] sm:top-[420px] top-[370px] sm:-left-[200px] -left-[130px] -rotate-90 whitespace-nowrap opacity-80 text-6xl font-bold ${
+          product!.toUpperCase().length <= 9 ? "sm:text-8xl" : "sm:text-7xl"
         }`}
         style={{ color: productDetails?.theme }}
       >

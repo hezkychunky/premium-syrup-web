@@ -85,28 +85,29 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
       className="relative mx-auto overflow-hidden flex items-center justify-center transition-colors duration-700 ease-in-out"
       style={{
         // show background color of the beginning or end item on fast clicks
-        backgroundColor: currentIndex <= 0
-          ? carouselItems[0]?.bgColor
-          : currentIndex >= carouselItems.length - 1
-          ? carouselItems[carouselItems.length - 1]?.bgColor
-          : carouselItems[currentIndex]?.bgColor, // Use background color of the first or last item
+        backgroundColor:
+          currentIndex <= 0
+            ? carouselItems[0]?.bgColor
+            : currentIndex >= carouselItems.length - 1
+            ? carouselItems[carouselItems.length - 1]?.bgColor
+            : carouselItems[currentIndex]?.bgColor, // Use background color of the first or last item
       }}
     >
-      {
-        items.length > 1
-          ?  <div className="carousel-prev pl-2">
-              <button
-                onClick={goToPrevious}
-                className="bg-gray-800/20 text-white p-4 rounded-full shadow-lg hover:bg-gray-700"
-              >
-                &lt;
-              </button>
-            </div>
-          : null
-      }
+      {items.length > 1 ? (
+        <div className="carousel-prev pl-2">
+          <button
+            onClick={goToPrevious}
+            className="bg-gray-800/20 text-white p-4 rounded-full shadow-lg hover:bg-gray-700"
+          >
+            &lt;
+          </button>
+        </div>
+      ) : null}
 
       <div
-        className={`flex ${isTransitioning ? "transition-all duration-700 ease-in-out" : ""}`}
+        className={`flex ${
+          isTransitioning ? "transition-all duration-700 ease-in-out" : ""
+        }`}
         onTransitionEnd={onEdgeItems}
         style={{
           transform: `translateX(-${currentIndex * 100}%)`, // Slide effect
@@ -130,33 +131,29 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
                 {item.title}
               </h2>
 
-              {
-                item.ctaLink
-                ? <a
-                    href={item.ctaLink}
-                    className="bg-[theme(--color-secondary)] hover:brightness-95 text-gray-800 px-6 py-3 rounded-lg text-xl"
-                  >
-                    {item.ctaText}
-                  </a>
-                : null
-              }
+              {item.ctaLink ? (
+                <a
+                  href={item.ctaLink}
+                  className="bg-[theme(--color-secondary)] hover:brightness-95 text-gray-800 px-6 py-3 rounded-lg text-xl"
+                >
+                  {item.ctaText}
+                </a>
+              ) : null}
             </div>
           </div>
         ))}
       </div>
 
-      {
-        items.length > 1
-          ? <div className="carousel-next pr-2">
-              <button
-                onClick={goToNext}
-                className="bg-gray-800/20 text-white p-4 rounded-full shadow-lg hover:bg-gray-700"
-              >
-                &gt;
-              </button>
-            </div>
-          : null
-      }
+      {items.length > 1 ? (
+        <div className="carousel-next pr-2">
+          <button
+            onClick={goToNext}
+            className="bg-gray-800/20 text-white p-4 rounded-full shadow-lg hover:bg-gray-700"
+          >
+            &gt;
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 };

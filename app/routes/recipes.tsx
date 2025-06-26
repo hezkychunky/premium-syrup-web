@@ -16,14 +16,14 @@ export default function Recipes() {
       <section className="grid recipes-grid-col mx-12 my-16 gap-12">
         <NavLink to={`/recipes/${"category"}/${"recipename"}`}>
           <RecipeCard
-            image={""}
+            image={"/recipes/americano-hazelnut-with-palm-sugar.png"}
             base="PREMIUM® LYCHEE"
             title="Moonlit Lychee"
           />
         </NavLink>
         <NavLink to={`/recipes/${"category"}/${"recipename"}`}>
           <RecipeCard
-            image={""}
+            image={"/recipes/blue-candy.png"}
             base="PREMIUM® LYCHEE"
             title="Moonlit Lychee"
           />

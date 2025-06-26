@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "recipe-name": "Moonlit Lychee",
+    "recipe-name": "Americano Hazelnut With Palm Sugar",
     "base-syrup": "premium® lychee",
     "category": "Fruity Delights",
     "ingredients": [
@@ -30,12 +30,12 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "americano-hazelnut-with-palm-sugar.png",
     "image2": ""
   },
   {
     "id": 2,
-    "recipe-name": "Dummy Recipe 1",
+    "recipe-name": "Choco Butterscotch",
     "base-syrup": "premium® lychee",
     "category": "Fruity Delights",
     "ingredients": [
@@ -64,12 +64,12 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "choco-butterscotch.png",
     "image2": ""
   },
   {
     "id": 3,
-    "recipe-name": "Dummy Recipe 2",
+    "recipe-name": "Matcha Caramel Latte",
     "base-syrup": "premium® lychee",
     "category": "Fruity Delights",
     "ingredients": [
@@ -98,12 +98,12 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "matcha-caramel-latte.png",
     "image2": ""
   },
   {
     "id": 4,
-    "recipe-name": "Dummy Recipe 3",
+    "recipe-name": "Peanut Butter Vanilla",
     "base-syrup": "premium® lychee",
     "category": "Fruity Delights",
     "ingredients": [
@@ -132,12 +132,12 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "peanut-butter-vanilla.png",
     "image2": ""
   },
   {
     "id": 5,
-    "recipe-name": "Dummy Recipe 4",
+    "recipe-name": "Tiramisu Banana Shake Espresso",
     "base-syrup": "premium® lychee",
     "category": "Fruity Delights",
     "ingredients": [
@@ -166,14 +166,14 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "tiramisu-banana-shake-espresso.png",
     "image2": ""
   },
   {
     "id": 6,
-    "recipe-name": "Dummy Recipe 5",
+    "recipe-name": "Blue Candy",
     "base-syrup": "premium® lychee",
-    "category": "Coffee Delights",
+    "category": "Fruity Delights",
     "ingredients": [
       {
         "item": "premium® lychee",
@@ -200,14 +200,14 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "blue-candy.png",
     "image2": ""
   },
   {
     "id": 7,
-    "recipe-name": "Dummy Recipe 6",
+    "recipe-name": "Cucumber Elder Tonic",
     "base-syrup": "premium® lychee",
-    "category": "Coffee Delights",
+    "category": "Fruity Delights",
     "ingredients": [
       {
         "item": "premium® lychee",
@@ -234,14 +234,14 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "cucumber-elder-tonic.png",
     "image2": ""
   },
   {
     "id": 8,
-    "recipe-name": "Dummy Recipe 7",
+    "recipe-name": "Lychee Rosella Soda",
     "base-syrup": "premium® lychee",
-    "category": "Coffee Delights",
+    "category": "Fruity Delights",
     "ingredients": [
       {
         "item": "premium® lychee",
@@ -268,14 +268,14 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "lychee-rosella-soda.png",
     "image2": ""
   },
   {
     "id": 9,
-    "recipe-name": "Dummy Recipe 8",
+    "recipe-name": "Mint Honey Watermelon Tea",
     "base-syrup": "premium® lychee",
-    "category": "Coffee Delights",
+    "category": "Fruity Delights",
     "ingredients": [
       {
         "item": "premium® lychee",
@@ -302,14 +302,14 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "mint-honey-watermelon-tea.png",
     "image2": ""
   },
   {
     "id": 10,
-    "recipe-name": "Dummy Recipe 9",
+    "recipe-name": "Winter Mojito",
     "base-syrup": "premium® lychee",
-    "category": "Coffee Delights",
+    "category": "Fruity Delights",
     "ingredients": [
       {
         "item": "premium® lychee",
@@ -336,14 +336,14 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "winter-mojito.png",
     "image2": ""
   },
   {
     "id": 11,
-    "recipe-name": "Dummy Recipe 10",
+    "recipe-name": "Blue Cucumber Squash Lemon",
     "base-syrup": "premium® lychee",
-    "category": "Unique Delights",
+    "category": "Fruity Delights",
     "ingredients": [
       {
         "item": "premium® lychee",
@@ -370,14 +370,14 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "blue-cucumber-squash-lemon.png",
     "image2": ""
   },
   {
     "id": 12,
-    "recipe-name": "Dummy Recipe 11",
+    "recipe-name": "Ice Strawberry Latte",
     "base-syrup": "premium® lychee",
-    "category": "Unique Delights",
+    "category": "Fruity Delights",
     "ingredients": [
       {
         "item": "premium® lychee",
@@ -404,14 +404,14 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "ice-strawberry-latte.png",
     "image2": ""
   },
   {
     "id": 13,
-    "recipe-name": "Dummy Recipe 12",
+    "recipe-name": "Passion Fruit Lemonade Americano",
     "base-syrup": "premium® lychee",
-    "category": "Unique Delights",
+    "category": "Fruity Delights",
     "ingredients": [
       {
         "item": "premium® lychee",
@@ -438,14 +438,14 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "passion-fruit-lemonade-americano.png",
     "image2": ""
   },
   {
     "id": 14,
-    "recipe-name": "Dummy Recipe 13",
+    "recipe-name": "Peach Orange Tea Soda",
     "base-syrup": "premium® lychee",
-    "category": "Unique Delights",
+    "category": "Fruity Delights",
     "ingredients": [
       {
         "item": "premium® lychee",
@@ -472,14 +472,14 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "peach-orange-tea-soda.png",
     "image2": ""
   },
   {
     "id": 15,
-    "recipe-name": "Dummy Recipe 14",
+    "recipe-name": "Virgin Pinacola",
     "base-syrup": "premium® lychee",
-    "category": "Unique Delights",
+    "category": "Fruity Delights",
     "ingredients": [
       {
         "item": "premium® lychee",
@@ -506,7 +506,7 @@
       "ut laoreet dolore magna aliquam erat volutpat"
     ],
     "theme": "#f38888",
-    "image1": "",
+    "image1": "virgin-pinacola.png",
     "image2": ""
   }
 ]

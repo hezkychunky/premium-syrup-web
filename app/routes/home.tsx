@@ -3,18 +3,25 @@ import Carousel from "~/components/carousel";
 
 const otherContent = [
   {
-    image: "/samples/other-content.jpg",
+    image: "/samples/grey.jpg",
     alt: "other-content",
-    title: "Other Content",
-    ctaText: "Add more content here",
-    ctaLink: "#",
+    title: "About Us",
+    ctaText: "Learn More",
+    ctaLink: "/our-story/about-us",
+  },
+  {
+    image: "/samples/grey.jpg",
+    alt: "other-content",
+    title: "Product Knowledge",
+    ctaText: "Learn More",
+    ctaLink: "/our-story/product-knowledge",
   },
 ];
 
 const carouselItems = [
   {
     image: "/carousel/all_products.png",
-    bgColor: '#d0152c',
+    bgColor: "#d0152c",
     alt: "All Products",
     title: "",
     ctaText: "",
@@ -22,7 +29,7 @@ const carouselItems = [
   },
   {
     image: "/carousel/premium_recipes.png",
-    bgColor: 'rgb(56, 118, 29)',
+    bgColor: "rgb(56, 118, 29)",
     alt: "Premium Recipes",
     title: "",
     ctaText: "",
@@ -30,7 +37,7 @@ const carouselItems = [
   },
   {
     image: "/carousel/marketplace.png",
-    bgColor: 'rgb(255, 217, 102)',
+    bgColor: "rgb(255, 217, 102)",
     alt: "Marketplace",
     title: "",
     ctaText: "",
@@ -54,9 +61,9 @@ export default function Home() {
 
       <Carousel items={otherContent} />
 
-      <div className="py-4" />
+      {/* <div className="py-4" />
 
-      <Carousel items={otherContent} />
+      <Carousel items={otherContent} /> */}
     </div>
   );
 }
