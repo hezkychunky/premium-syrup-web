@@ -116,17 +116,17 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
         {carouselItems.map((item, index) => (
           <div
             key={index}
-            className="relative w-full flex-shrink-0 my-auto"
+            className="relative w-full carousel-height flex justify-center items-center flex-shrink-0 my-auto"
             style={{ transition: "transform 0.7s ease-in-out" }}
           >
             <img
               src={item.image}
               alt={item.alt}
-              className="w-full max-h-screen object-contain rounded-lg"
+              className="max-h-80 md:max-h-160 object-contain rounded-lg"
             />
 
             {/* Overlay text and CTA button */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-gray-700">
+            {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-gray-700">
               <h2 className="text-3xl font-bold mb-4 bg-transparent backdrop-blur-xs">
                 {item.title}
               </h2>
@@ -139,7 +139,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
                   {item.ctaText}
                 </a>
               ) : null}
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

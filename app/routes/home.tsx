@@ -25,7 +25,7 @@ const carouselItems = [
     alt: "All Products",
     title: "",
     ctaText: "",
-    ctaLink: "",
+    ctaLink: "/products",
   },
   {
     image: "/carousel/premium_recipes.png",
@@ -33,7 +33,7 @@ const carouselItems = [
     alt: "Premium Recipes",
     title: "",
     ctaText: "",
-    ctaLink: "",
+    ctaLink: "/recipes",
   },
   {
     image: "/carousel/marketplace.png",
