@@ -16,7 +16,7 @@ export default function Products() {
   return (
     <div className="flex flex-col flex-grow items-center pt-36 text-4xl font-semibold">
       <h1>ALL PRODUCTS</h1>
-      <section className="flex flex-wrap justify-center xl:justify-start gap-10 pt-36 mb-12 w-11/12">
+      <section className="flex flex-wrap justify-center 2xl:justify-start gap-10 pt-36 mb-12 w-11/12">
         {products.map((item) => {
           return (
             <NavLink
