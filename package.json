@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-router/node": "^7.5.3",
     "@react-router/serve": "^7.5.3",
+    "aos": "^2.3.4",
     "axios": "^1.10.0",
     "dayjs": "^1.11.13",
     "isbot": "^5.1.27",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "@react-router/dev": "^7.5.3",
     "@tailwindcss/vite": "^4.1.4",
+    "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",

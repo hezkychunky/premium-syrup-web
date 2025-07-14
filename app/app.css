@@ -82,6 +82,7 @@ b {
   margin-bottom: 36px;
 }
 
+/* recipes grid */
 @media screen and (width < 670px) {
   .recipes-grid-col {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -103,6 +104,43 @@ b {
 @media screen and (width >= 1588px) and (width < 1920px) {
   .recipes-grid-col {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media screen and (width >= 1920px) {
+  .recipes-grid-col {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/* products grid */
+@media screen and (width < 576px) {
+  .products-grid-col {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+@media screen and (width >= 576px) and (width < 768px) {
+  .products-grid-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (width >= 768px) and (width < 1024px) {
+  .products-grid-col {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media screen and (width >= 1024px) and (width < 1280px) {
+  .products-grid-col {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media screen and (width >= 1280px) {
+  .products-grid-col {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
 
