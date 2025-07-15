@@ -23,7 +23,7 @@ export default function ProductsByCategory() {
 
   return (
     <div className="flex flex-col flex-grow items-center pt-36 text-4xl font-semibold">
-      <h1 className="">{parsedCategory.toUpperCase()}</h1>
+      <h1 className="page-title">{parsedCategory.toUpperCase()}</h1>
       <section className="flex flex-wrap justify-center xl:justify-start gap-10 pt-36 mb-12 w-11/12">
         {productsByCategory.map((product) => {
           return (

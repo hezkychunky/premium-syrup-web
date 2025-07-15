@@ -110,7 +110,7 @@ export default function Navbar() {
           <div className="hidden lg:flex font-sans justify-between items-center w-3/4 px-4 text-[theme(--color-primary)]">
             {navDrawerMenus.map((item, index) => {
               return (
-                <div key={index} className="relative group">
+                <div key={index} className="relative group menu-name">
                   <button
                     onClick={() => handleToggle(item.replace(/\s/, "-"))}
                     className={
@@ -129,7 +129,7 @@ export default function Navbar() {
             })}
             {navMenus.map((item, index) => {
               return (
-                <div key={index} className="relative group">
+                <div key={index} className="relative group menu-name">
                   <button
                     onClick={() => setOpenDrawer(null)}
                     className="mb-[6px]"

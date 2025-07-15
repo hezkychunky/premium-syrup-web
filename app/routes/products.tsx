@@ -38,7 +38,7 @@ export default function Products() {
 
   return (
     <div className="flex flex-col flex-grow items-center pt-36 text-4xl font-semibold">
-      <h1>ALL PRODUCTS</h1>
+      <h1 className="page-title">ALL PRODUCTS</h1>
       <section className="grid products-grid-col mx-12 my-16 gap-12">
         {products.map((item, index) => {
           return (

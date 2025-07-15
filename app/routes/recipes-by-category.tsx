@@ -15,7 +15,7 @@ export default function RecipesByCategory() {
 
   return (
     <div className="flex flex-col flex-grow items-center pt-36 text-3xl font-light">
-      <h1 className="">{toNormalSpacing(category!).toUpperCase()}</h1>
+      <h1 className="page-title">{toNormalSpacing(category!).toUpperCase()}</h1>
       <section className="grid recipes-grid-col mx-12 my-16 gap-12">
         <NavLink to={`/recipes/${"category"}/${"recipename"}`}>
           <RecipeCard

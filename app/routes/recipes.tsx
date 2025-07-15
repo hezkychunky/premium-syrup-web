@@ -12,7 +12,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Recipes() {
   return (
     <div className="flex flex-col flex-grow items-center pt-36 text-3xl font-light">
-      <h1>ALL RECIPES</h1>
+      <h1 className="page-title">ALL RECIPES</h1>
       <section className="grid recipes-grid-col mx-12 my-16 gap-12">
         <NavLink to={`/recipes/${"category"}/${"recipename"}`}>
           <RecipeCard
