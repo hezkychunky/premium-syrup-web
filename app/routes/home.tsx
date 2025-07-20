@@ -1,5 +1,7 @@
+import FollowUs from "~/components/follow-us";
 import type { Route } from "./+types/home";
 import Carousel from "~/components/carousel";
+import OurStorySneak from "~/components/our-story-sneak";
 
 const otherContent = [
   {
@@ -54,12 +56,10 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen pt-20 sm:pt-24 mb-12">
+    <div className="flex flex-col min-h-screen pt-20 sm:pt-24">
       <Carousel items={carouselItems} />
-
-      <div className="py-4" />
-
-      <Carousel items={otherContent} />
+      <OurStorySneak />
+      <FollowUs />
     </div>
   );
 }
