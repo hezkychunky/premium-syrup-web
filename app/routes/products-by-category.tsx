@@ -28,7 +28,7 @@ export default function ProductsByCategory() {
   useEffect(() => {
     AOS.init({
       duration: 600,
-      easing: 'ease-out',
+      easing: "ease-out",
       once: true,
     });
 
@@ -49,12 +49,20 @@ export default function ProductsByCategory() {
       <section className="flex flex-wrap justify-center xl:justify-start gap-10 pt-36 mb-12 w-11/12">
         {productsByCategory.map((product, index) => {
           return (
-            <div key={product.name} data-aos="fade-up" data-aos-delay={columns < 3 ? 100 : (index % columns) * 100}>
+            <div
+              key={product.name}
+              data-aos="fade-up"
+              data-aos-delay={columns < 3 ? 100 : (index % columns) * 100}
+            >
               <NavLink
                 key={product.id}
                 to={`/products/${category}/${toKebabCase(product.name)}`}
               >
-                <ProductCard title={product.name} image={product.image} />
+                <ProductCard
+                  title={product.name}
+                  image={product.image}
+                  color={product.theme}
+                />
               </NavLink>
             </div>
           );

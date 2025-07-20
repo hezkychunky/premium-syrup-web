@@ -60,10 +60,6 @@ export default function Home() {
       <div className="py-4" />
 
       <Carousel items={otherContent} />
-
-      {/* <div className="py-4" />
-
-      <Carousel items={otherContent} /> */}
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default function Products() {
   useEffect(() => {
     AOS.init({
       duration: 600,
-      easing: 'ease-out',
+      easing: "ease-out",
       once: true,
     });
 
@@ -42,13 +42,21 @@ export default function Products() {
       <section className="grid products-grid-col mx-12 my-16 gap-12">
         {products.map((item, index) => {
           return (
-            <div key={item.name} data-aos="fade-up" data-aos-delay={columns < 3 ? 100 : (index % columns) * 100}>
+            <div
+              key={item.name}
+              data-aos="fade-up"
+              data-aos-delay={columns < 3 ? 100 : (index % columns) * 100}
+            >
               <NavLink
                 to={`/products/${toKebabCase(item.category)}/${toKebabCase(
                   item.name
                 )}`}
               >
-                <ProductCard title={item.name} image={item.image} />
+                <ProductCard
+                  title={item.name}
+                  image={item.image}
+                  color={item.theme}
+                />
               </NavLink>
             </div>
           );
