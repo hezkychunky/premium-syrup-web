@@ -2,6 +2,8 @@ import FollowUs from "~/components/follow-us";
 import type { Route } from "./+types/home";
 import Carousel from "~/components/carousel";
 import OurStorySneak from "~/components/our-story-sneak";
+import ProductSneak from "~/components/products-sneak";
+import RecipesSneak from "~/components/recipes-sneak";
 
 const otherContent = [
   {
@@ -59,6 +61,8 @@ export default function Home() {
     <div className="flex flex-col min-h-screen pt-20 sm:pt-24">
       <Carousel items={carouselItems} />
       <OurStorySneak />
+      <ProductSneak />
+      <RecipesSneak />
       <FollowUs />
     </div>
   );

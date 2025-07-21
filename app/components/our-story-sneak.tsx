@@ -13,24 +13,23 @@ export default function OurStorySneak() {
   return (
     <>
       <div className="h-auto flex flex-col lg:flex-row gap-10 px-10 pt-14 sm:items-center">
-        <section
-          className="relative sm:w-[550px] h-[600px]"
-          data-aos="fade-right"
-        >
+        <section className="relative w-[300px] sm:w-[550px] h-[300px] sm:h-[600px]">
           <img
             src="/samples/our-story1.jpg"
             alt="Top Left"
-            className="absolute top-0 left-0 object-cover w-3/4 sm:w-72"
+            className="absolute top-0 left-0 object-cover w-44 sm:w-72 rounded-md"
+            data-aos="fade-down"
           />
           <img
             src="/samples/our-story2.jpg"
             alt="Bottom Right"
-            className="absolute bottom-0 right-0 object-cover w-3/4 sm:w-72"
+            className="absolute bottom-0 right-0 object-cover w-44 sm:w-72 rounded-md"
+            data-aos="fade-up"
           />
         </section>
         <section
-          className="flex flex-col justify-between lg:pt-16 max-w-3xl xl:pr-14"
-          data-aos="fade-up"
+          className="flex flex-col justify-between lg:pt-16 max-w-3xl xl:pr-14 lg:h-[600px]"
+          data-aos="fade-left"
         >
           <div>
             <div className="flex flex-col gap-2">
@@ -52,7 +51,7 @@ export default function OurStorySneak() {
               </p>
             </div>
           </div>
-          <div className="tracking-widest text-center border-2 hover:bg-[theme(--color-primary)] hover:text-[theme(--color-secondary)] border-[theme(--color-primary)] text-[theme(--color-primary)] text-2xl font-bold py-2 w-80">
+          <div className="tracking-widest text-center duration-500 border-2 hover:bg-[theme(--color-primary)] hover:text-[theme(--color-secondary)] border-[theme(--color-primary)] text-[theme(--color-primary)] text-2xl font-bold py-2 w-80">
             <Link to={"/our-story/about-us"}>SEE OUR STORY →</Link>
           </div>
         </section>
