@@ -17,10 +17,10 @@ export default function RecipesSneak() {
   return (
     <>
       <div
-        className="h-auto flex flex-col gap-10 lg:gap-16 lg:mb-8 px-10 pt-20 sm:items-center"
+        className="h-auto flex flex-col gap-10 lg:gap-16 mb-20 pt-20 sm:items-center"
         data-aos="fade-up"
       >
-        <section className="flex flex-col gap-6 lg:flex-row justify-between w-full">
+        <section className="flex flex-col gap-6 lg:flex-row justify-between w-full px-10">
           <h1 className="text-3xl sm:text-5xl text-[theme(--color-primary)] font-sans font-extrabold">
             OUR RECIPES
           </h1>
@@ -28,12 +28,14 @@ export default function RecipesSneak() {
             <Link to={"/recipes"}>SEE ALL →</Link>
           </div>
         </section>
-        <section className="grid products-grid-col mx-10 gap-12 lg:flex lg:justify-evenly lg:w-full">
+        {/* <section className="grid products-grid-col mx-10 gap-12 lg:flex lg:justify-evenly lg:w-full bg-amber-200"> */}
+        <section className="flex flex-col items-center sm:flex-row flex-wrap justify-evenly h-auto w-full">
           {recipes.slice(10, 13).map((item, index) => {
             return (
               <NavLink
                 key={index}
                 to={`/recipes/${item.category}/${item["recipe-name"]}`}
+                className="m-4"
               >
                 <RecipeCard
                   image={`/recipes/${item.image1}`}

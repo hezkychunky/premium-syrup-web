@@ -9,15 +9,15 @@
 }
 
 @font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-Variable.ttf') format('truetype');
+  font-family: "General Sans";
+  src: url("/fonts/GeneralSans-Variable.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Space Mono';
-  src: url('/fonts/SpaceMono-Regular.ttf') format('truetype');
+  font-family: "Space Mono";
+  src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -159,9 +159,8 @@ b {
 }
 
 .news-list {
-  @apply
-    lg:gap-4 lg:items-start md:px-24 lg:px-28 lg:pt-40 lg:pb-12 /* large */
-    px-12 pt-30 /* smaller than lg */
+  @apply lg:gap-4 lg:items-start md:px-24 lg:px-28 lg:pt-40 lg:pb-12 /* large */
+    px-12 pt-30 /* smaller than lg */;
 }
 
 /* carousel */
@@ -184,11 +183,35 @@ b {
 }
 
 .page-title {
-  font-family: 'General Sans', sans-serif;
+  font-family: "General Sans", sans-serif;
   font-weight: 700;
 }
 
 .menu-name {
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
   font-weight: 600;
+}
+
+.container {
+  perspective: 1000px;
+}
+
+.cards {
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  position: relative;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.container:hover .cards {
+  transform: rotateY(180deg);
 }

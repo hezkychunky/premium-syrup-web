@@ -4,6 +4,7 @@ import Carousel from "~/components/carousel";
 import OurStorySneak from "~/components/our-story-sneak";
 import ProductSneak from "~/components/products-sneak";
 import RecipesSneak from "~/components/recipes-sneak";
+import PremiumMarquee from "~/components/premium-marquee";
 
 const otherContent = [
   {
@@ -63,6 +64,7 @@ export default function Home() {
       <OurStorySneak />
       <ProductSneak />
       <RecipesSneak />
+      <PremiumMarquee />
       <FollowUs />
     </div>
   );

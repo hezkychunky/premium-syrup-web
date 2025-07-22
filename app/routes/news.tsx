@@ -17,9 +17,9 @@ export async function loader() {
 
 type News = {
   id: number;
-  image: string
+  image: string;
   title: string;
-  slug: string;
+  source: string;
   content: string;
   date: string;
 };
@@ -27,19 +27,17 @@ type News = {
 export default function News({ loaderData }: Route.ComponentProps) {
   return (
     <div className="flex flex-grow flex-col items-center news-list text-3xl font-light">
-      {
-        loaderData.map((news: News) => {
-          return (
-            <NewsCard
-              key={news.id}
-              image={news.image}
-              title={news.title}
-              slug={news.slug}
-              content={news.content}
-            />
-          );
-        })
-      }
+      {loaderData.map((news: News) => {
+        return (
+          <NewsCard
+            key={news.id}
+            image={news.image}
+            title={news.title}
+            source={news.source}
+            content={news.content}
+          />
+        );
+      })}
     </div>
   );
 }
