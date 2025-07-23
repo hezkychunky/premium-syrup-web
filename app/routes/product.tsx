@@ -32,7 +32,11 @@ export default function Product() {
   return (
     <div className="relative flex flex-col flex-grow items-center pt-32 sm:text-3xl text-2xl font-light">
       {isShopModalOpen && (
-        <ShopModal tokopedia="" shopee="" onClose={handleCloseModal} />
+        <ShopModal
+          tokopedia={productDetails?.tokopediaUrl!}
+          shopee={productDetails?.shopeeUrl!}
+          onClose={handleCloseModal}
+        />
       )}
       <div
         className={`hidden fixed -top-[130px] -right-[400px] rounded-full w-[1200px] h-[1200px] opacity-20 xl:flex items-center justify-center`}
