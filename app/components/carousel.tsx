@@ -1,24 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
 
-interface CarouselItem {
-  image: string;
-  bgColor?: string; // Optional background color for the slide
-  alt: string;
-  title: string;
-  ctaText: string;
-  ctaLink: string;
-}
+const items = [
+  {
+    image: "/carousel/all_products.png",
+    bgColor: "#d0152c",
+  },
+  {
+    image: "/carousel/premium_recipes.png",
+    bgColor: "rgb(56, 118, 29)",
+  },
+  {
+    image: "/carousel/marketplace.png",
+    bgColor: "rgb(255, 217, 102)",
+  },
+];
 
-interface CarouselProps {
-  items: CarouselItem[];
-}
-
-const Carousel: React.FC<CarouselProps> = ({ items }) => {
+const Carousel = () => {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const [currentIndex, setCurrentIndex] = useState<number>(1);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(true);
-  const [carouselItems, _] = useState<CarouselItem[]>([
+  const [carouselItems, _] = useState<Record<string, any>[]>([
     items[items.length - 1], // Start with the last item
     ...items, // Add all items
     items[0], // Add the first item at the end for looping
@@ -26,13 +28,13 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
 
   // Automatically change slide every 3 seconds
   useEffect(() => {
-    resetTimer();
+    // resetTimer();
 
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
-    };
+    // return () => {
+    //   if (timerRef.current) {
+    //     clearInterval(timerRef.current);
+    //   }
+    // };
   }, []); // Only run the effect once when the component mounts
 
   useEffect(() => {
@@ -48,13 +50,13 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
   const goToNext = () => {
     setCurrentIndex((prevIndex) => prevIndex + 1); // Loop to the first slide when going forward
     setIsTransitioning(true);
-    resetTimer();
+    // resetTimer();
   };
 
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) => prevIndex - 1); // Loop to the last slide when going backward
     setIsTransitioning(true);
-    resetTimer();
+    // resetTimer();
   };
 
   const onEdgeItems = () => {
@@ -93,6 +95,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
             : carouselItems[currentIndex]?.bgColor, // Use background color of the first or last item
       }}
     >
+      {/* Previous button */}
       {items.length > 1 ? (
         <div className="carousel-prev pl-2">
           <button
@@ -106,7 +109,7 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
 
       <div
         className={`flex ${
-          isTransitioning ? "transition-all duration-700 ease-in-out" : ""
+          isTransitioning ? "transition-all duration-1200 ease-in-out" : ""
         }`}
         onTransitionEnd={onEdgeItems}
         style={{
@@ -121,29 +124,13 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
           >
             <img
               src={item.image}
-              alt={item.alt}
               className="max-h-80 md:max-h-160 object-contain rounded-lg"
             />
-
-            {/* Overlay text and CTA button */}
-            {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-gray-700">
-              <h2 className="text-3xl font-bold mb-4 bg-transparent backdrop-blur-xs">
-                {item.title}
-              </h2>
-
-              {item.ctaLink ? (
-                <a
-                  href={item.ctaLink}
-                  className="bg-[theme(--color-secondary)] hover:brightness-95 text-gray-800 px-6 py-3 rounded-lg text-xl"
-                >
-                  {item.ctaText}
-                </a>
-              ) : null}
-            </div> */}
           </div>
         ))}
       </div>
 
+      {/* Next button */}
       {items.length > 1 ? (
         <div className="carousel-next pr-2">
           <button

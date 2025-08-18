@@ -6,50 +6,6 @@ import ProductSneak from "~/components/products-sneak";
 import RecipesSneak from "~/components/recipes-sneak";
 import PremiumMarquee from "~/components/premium-marquee";
 
-const otherContent = [
-  {
-    image: "/samples/grey.jpg",
-    alt: "other-content",
-    title: "About Us",
-    ctaText: "Learn More",
-    ctaLink: "/our-story/about-us",
-  },
-  {
-    image: "/samples/grey.jpg",
-    alt: "other-content",
-    title: "Product Knowledge",
-    ctaText: "Learn More",
-    ctaLink: "/our-story/product-knowledge",
-  },
-];
-
-const carouselItems = [
-  {
-    image: "/carousel/all_products.png",
-    bgColor: "#d0152c",
-    alt: "All Products",
-    title: "",
-    ctaText: "",
-    ctaLink: "/products",
-  },
-  {
-    image: "/carousel/premium_recipes.png",
-    bgColor: "rgb(56, 118, 29)",
-    alt: "Premium Recipes",
-    title: "",
-    ctaText: "",
-    ctaLink: "/recipes",
-  },
-  {
-    image: "/carousel/marketplace.png",
-    bgColor: "rgb(255, 217, 102)",
-    alt: "Marketplace",
-    title: "",
-    ctaText: "",
-    ctaLink: "",
-  },
-];
-
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Premium Syrup" },
@@ -60,7 +16,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen pt-20 sm:pt-24">
-      <Carousel items={carouselItems} />
+      <Carousel />
       <OurStorySneak />
       <ProductSneak />
       <RecipesSneak />
