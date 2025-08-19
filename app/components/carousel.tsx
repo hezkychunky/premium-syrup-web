@@ -25,7 +25,6 @@ const Carousel = () => {
 
   const [fade, setFade] = useState<boolean>(false);
   const [currentIndex, setCurrentIndex] = useState<number>(1);
-  const [currentFgIndex, setCurrentFgIndex] = useState<number>(1);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(true);
   const [carouselItems, _] = useState<Record<string, any>[]>([
     items[items.length - 1], // Start with the last item
@@ -59,7 +58,6 @@ const Carousel = () => {
     setCurrentIndex((prevIndex) => prevIndex + 1); // Loop to the first slide when going forward
 
     setTimeout(() => {
-      setCurrentFgIndex((prevIndex) => prevIndex + 1);
       setFade(false);
     }, FG_FADE_DURATION * 2);
 
@@ -72,7 +70,6 @@ const Carousel = () => {
     setCurrentIndex((prevIndex) => prevIndex - 1); // Loop to the last slide when going backward
 
     setTimeout(() => {
-      setCurrentFgIndex((prevIndex) => prevIndex - 1); // Loop to the last slide when going backward
       setFade(false);
     }, FG_FADE_DURATION * 2);
 
@@ -82,15 +79,17 @@ const Carousel = () => {
 
   const onEdgeItems = () => {
     if (currentIndex >= carouselItems.length - 1) {
-      setCurrentIndex(1); // Reset to first slide if at the end
-      setCurrentFgIndex(1); // Reset foreground index
-      setIsTransitioning(false);
+      setTimeout(() => {
+        setCurrentIndex(1); // Reset to first slide if at the end
+        setIsTransitioning(false);
+      }, FG_FADE_DURATION * 2);
     }
 
     if (currentIndex <= 0) {
-      setCurrentIndex(carouselItems.length - 2); // Reset to last slide if at the beginning
-      setCurrentFgIndex(carouselItems.length - 2); // Reset foreground index
-      setIsTransitioning(false);
+      setTimeout(() => {
+        setCurrentIndex(carouselItems.length - 2); // Reset to last slide if at the beginning
+        setIsTransitioning(false);
+      }, FG_FADE_DURATION * 2);
     }
   };
 
@@ -104,7 +103,6 @@ const Carousel = () => {
       setCurrentIndex((prevIndex) => prevIndex + 1); // Loop to the first slide when going forward
 
       setTimeout(() => {
-        setCurrentFgIndex((prevIndex) => prevIndex + 1);
         setFade(false);
       }, FG_FADE_DURATION * 2);
 
@@ -157,27 +155,22 @@ const Carousel = () => {
             />
           </div>
         ))}
-      </div>
 
-      <div
-        className={`absolute flex ${
-          isTransitioning ? `transition-opacity duration-${FG_FADE_DURATION} ${fade ? 'opacity-0' : 'opacity-100'}` : ""
-        }`}
-        style={{
-          transform: `translateX(-${currentFgIndex * 100}%)`, // Slide effect
-        }}
-      >
-        {carouselItems.map((item, index) => (
-          <div
-            key={'fg' + index}
-            className="relative w-full carousel-height flex justify-center items-center flex-shrink-0 my-auto"
-          >
-            <img
-              src={item.fgImage}
-              className="max-h-80 md:max-h-160 object-contain rounded-lg"
-            />
-          </div>
-        ))}
+        <div
+          className={`absolute flex transition-opacity duration-${FG_FADE_DURATION} ${fade ? 'opacity-0' : 'opacity-100'}`}
+        >
+          {carouselItems.map((item, index) => (
+            <div
+              key={'fg' + index}
+              className="relative w-full carousel-height flex justify-center items-center flex-shrink-0 my-auto"
+            >
+              <img
+                src={item.fgImage}
+                className="max-h-80 md:max-h-160 object-contain rounded-lg"
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Next button */}
