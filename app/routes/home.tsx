@@ -1,4 +1,3 @@
-import FollowUs from "~/components/follow-us";
 import type { Route } from "./+types/home";
 import Carousel from "~/components/carousel";
 import OurStorySneak from "~/components/our-story-sneak";
@@ -6,6 +5,7 @@ import ProductSneak from "~/components/products-sneak";
 import RecipesSneak from "~/components/recipes-sneak";
 import PremiumMarquee from "~/components/premium-marquee";
 import ProductKnowledgeSneak from "~/components/productknowledge-sneak";
+import FollowUs from "~/components/follow-us";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -19,7 +19,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen pt-20 sm:pt-24">
       <Carousel />
       <div className="relative">
-        <div className="hidden xl:block absolute inset-0 overflow-hidden">
+        <div className="hidden xl:block absolute inset-0 pointer-events-none overflow-hidden">
           {/* Bubble 1 */}
           <div className="absolute -top-16 -right-56 w-[900px] h-[900px] bg-emerald-900 opacity-5 rounded-full" />
           {/* Bubble 2 */}
