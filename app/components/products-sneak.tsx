@@ -63,13 +63,13 @@ export default function ProductSneak() {
                     to={`/products/${toKebabCase(item.category)}/${toKebabCase(
                       item.name
                     )}`}
-                    className="w-24 text-center border-2 border-[theme(--color-primary)] text-[theme(--color-primary)]"
+                    className="w-24 text-center border-2 border-[theme(--color-primary)] text-[theme(--color-primary)] hover:bg-[theme(--color-primary)] hover:text-[theme(--color-secondary)] duration-300"
                   >
                     ABOUT
                   </Link>
                   <button
                     onClick={() => handleShopNowClick(item)}
-                    className="w-24 text-center border-2 border-[theme(--color-primary)] bg-[theme(--color-primary)] text-[theme(--color-secondary)]"
+                    className="w-24 text-center border-2 border-[theme(--color-primary)] bg-[theme(--color-primary)] text-[theme(--color-secondary)] hover:bg-transparent hover:text-[theme(--color-primary)] duration-300"
                   >
                     BUY NOW
                   </button>

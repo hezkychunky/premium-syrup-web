@@ -5,7 +5,7 @@ import IngredientsCard from "~/components/ingredients-card";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Premium Syrup Products" },
+    { title: "Recipe | Premium Syrup" },
     { name: "description", content: "Premium Syrup Products by Category" },
   ];
 }

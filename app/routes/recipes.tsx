@@ -5,7 +5,7 @@ import recipes from "../data/recipes.json";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Premium Syrup Products" },
+    { title: "Recipes | Premium Syrup" },
     { name: "description", content: "Premium Syrup Products" },
   ];
 }

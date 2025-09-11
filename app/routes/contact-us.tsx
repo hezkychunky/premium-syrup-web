@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import { data, Link, useFetcher } from "react-router";
-import sanitize from 'sanitize-html';
+import sanitize from "sanitize-html";
 
 import type { Route } from "./+types/contact-us";
 import { contactUsValidator } from "~/utils/validator";
-import { createHTTP } from '~/utils/apiRequest';
+import { createHTTP } from "~/utils/apiRequest";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Contact Us" },
+    { title: "Contact Us | Premium Syrup" },
     { name: "description", content: "Premium Syrup Contact" },
   ];
 }
@@ -25,24 +25,18 @@ export async function action({ request }: Route.ActionArgs) {
 
     const result = contactUsValidator(payload);
     if (!result.valid) {
-      return data(
-        { ...result, success: false },
-        { status: 200 },
-      );
+      return data({ ...result, success: false }, { status: 200 });
     }
 
     // Send e-mail to user from API
-    const http = createHTTP('server');
-    await http.post('/send-email', { ...payload });
+    const http = createHTTP("server");
+    await http.post("/send-email", { ...payload });
 
-    return data(
-      { ...result, success: true },
-      { status: 200 },
-    );
+    return data({ ...result, success: true }, { status: 200 });
   } catch (error) {
     return data(
-      { success: false, errorMsg: 'An error occured. Please contact us later' },
-      { status: 200 },
+      { success: false, errorMsg: "An error occured. Please contact us later" },
+      { status: 200 }
     );
   }
 }
@@ -67,8 +61,8 @@ export default function ContactUs() {
     });
 
     if (result && result.valid && result.success) {
-      alert('Your message has been sent successfully!');
-      document.querySelector('form')?.reset();
+      alert("Your message has been sent successfully!");
+      document.querySelector("form")?.reset();
     }
   }, [result]);
 
@@ -89,11 +83,9 @@ export default function ContactUs() {
                 className="w-full border-b-1 pb-1 focus:outline-0"
                 onChange={() => setHasChanged({ ...hasChanged, name: true })}
               />
-              {
-                !hasChanged.name && result && result.errors['name']
-                  ? <p className="text-sm form-error">{result.errors['name']}</p>
-                  : null
-              }
+              {!hasChanged.name && result && result.errors["name"] ? (
+                <p className="text-sm form-error">{result.errors["name"]}</p>
+              ) : null}
             </div>
 
             <div>
@@ -104,11 +96,9 @@ export default function ContactUs() {
                 className="w-full border-b-1 pb-1 focus:outline-0"
                 onChange={() => setHasChanged({ ...hasChanged, email: true })}
               />
-              {
-                 !hasChanged.email && result && result.errors['email']
-                  ? <p className="text-sm form-error">{result.errors['email']}</p>
-                  : null
-              }
+              {!hasChanged.email && result && result.errors["email"] ? (
+                <p className="text-sm form-error">{result.errors["email"]}</p>
+              ) : null}
             </div>
 
             <div>
@@ -119,11 +109,9 @@ export default function ContactUs() {
                 className="w-full border-b-1 pb-1 focus:outline-0"
                 onChange={() => setHasChanged({ ...hasChanged, phone: true })}
               />
-              {
-                !hasChanged.phone && result && result.errors['phone']
-                  ? <p className="text-sm form-error">{result.errors['phone']}</p>
-                  : null
-              }
+              {!hasChanged.phone && result && result.errors["phone"] ? (
+                <p className="text-sm form-error">{result.errors["phone"]}</p>
+              ) : null}
             </div>
 
             <div>
@@ -135,19 +123,19 @@ export default function ContactUs() {
                 className="w-full border-b-1 pb-1 focus:outline-0"
                 onChange={() => setHasChanged({ ...hasChanged, message: true })}
               />
-              {
-                !hasChanged.message && result && result.errors['message']
-                  ? <p className="text-sm form-error">{result.errors['message']}</p>
-                  : null
-              }
+              {!hasChanged.message && result && result.errors["message"] ? (
+                <p className="text-sm form-error">{result.errors["message"]}</p>
+              ) : null}
             </div>
 
             <div className="w-full flex justify-center mt-10">
               <button
-                disabled={fetcher.state === 'submitting'}
+                disabled={fetcher.state === "submitting"}
                 className="shadow-md rounded-xl w-3/5 shadow-gray-400 py-2 hover:scale-95 hover:brightness-75 disabled:cursor-not-allowed"
               >
-                { fetcher.state === 'submitting' ? 'SUBMITTING...' : 'SUBMIT MESSAGE' }
+                {fetcher.state === "submitting"
+                  ? "SUBMITTING..."
+                  : "SUBMIT MESSAGE"}
               </button>
             </div>
           </fetcher.Form>

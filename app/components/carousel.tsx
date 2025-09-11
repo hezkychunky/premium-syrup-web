@@ -1,20 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router";
 
 const items = [
   {
     bgImage: "/carousel/all_products/all_products_bg.png",
     fgImage: "/carousel/all_products/all_products_fg.png",
     bgColor: "#d0152c",
+    cta: "https://www.premiumsyrup.id/products",
   },
   {
     bgImage: "/carousel/premium_recipes/premium_recipes_bg.png",
     fgImage: "/carousel/premium_recipes/premium_recipes_fg.png",
     bgColor: "rgb(56, 118, 29)",
+    cta: "https://www.premiumsyrup.id/recipes",
   },
   {
     bgImage: "/carousel/marketplace/marketplace_bg.png",
     fgImage: "/carousel/marketplace/marketplace_fg.png",
     bgColor: "rgb(255, 217, 102)",
+    cta: "https://www.tokopedia.com/premiumsyrup",
   },
 ];
 
@@ -157,17 +161,21 @@ const Carousel = () => {
         ))}
 
         <div
-          className={`absolute flex transition-opacity duration-${FG_FADE_DURATION} ${fade ? 'opacity-0' : 'opacity-100'}`}
+          className={`absolute flex transition-opacity duration-${FG_FADE_DURATION} ${
+            fade ? "opacity-0" : "opacity-100"
+          }`}
         >
           {carouselItems.map((item, index) => (
             <div
-              key={'fg' + index}
+              key={"fg" + index}
               className="relative w-full carousel-height flex justify-center items-center flex-shrink-0 my-auto"
             >
-              <img
-                src={item.fgImage}
-                className="max-h-80 md:max-h-160 object-contain rounded-lg"
-              />
+              <Link to={item.cta}>
+                <img
+                  src={item.fgImage}
+                  className="max-h-80 md:max-h-160 object-contain rounded-lg"
+                />
+              </Link>
             </div>
           ))}
         </div>

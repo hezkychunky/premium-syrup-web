@@ -26,8 +26,8 @@ const TastesCard: React.FC<TastesCardProps> = ({
       >
         {preTitle} <b className="mx-2">{boldTitle}</b> {postTitle}
       </h1>
-      <div className="rounded-b-3xl w-full pt-8 -mt-6 mb-4 overflow-hidden bg-gray-200 flex justify-center">
-        <img src={image} alt="taste category image" className="h-80" />
+      <div className="rounded-b-3xl w-full pt-8 -mt-6 mb-4 overflow-hidden flex justify-center">
+        <img src={image} alt="taste category image" />
       </div>
       <h2 className="text-lg font-semibold">{heading}</h2>
       <p className="text-sm text-center">{description}</p>

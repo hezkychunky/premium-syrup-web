@@ -10,7 +10,7 @@ import type { Route } from "./+types/products";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Premium Syrup Products" },
+    { title: "Products | Premium Syrup" },
     { name: "description", content: "Premium Syrup Products" },
   ];
 }

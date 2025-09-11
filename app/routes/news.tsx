@@ -5,8 +5,8 @@ import newsData from "~/data/news.json";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "News | Premium Syrup" },
+    { name: "description", content: "Premium Syrup News" },
   ];
 }
 

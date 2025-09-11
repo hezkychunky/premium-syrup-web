@@ -3,8 +3,8 @@ import type { Route } from "./+types/faq";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "FAQ | Premium Syurp" },
+    { name: "description", content: "Premium Syrup FAQ" },
   ];
 }
 
@@ -22,8 +22,8 @@ export default function Faq() {
 
   return (
     <div className="flex flex-grow flex-col gap-8 items-center pt-36 pb-10 font-light">
-      <h1 className="text-2xl md:text-4xl">
-        PREMIUM® SYRUP <b className="font-extrabold">FAQ’s</b>
+      <h1 className="text-2xl md:text-4xl xl:mb-14">
+        <b className="font-extrabold">FREQUENTLY ASKED QUESTIONS</b>
       </h1>
       <div className="flex flex-col gap-6 w-3/4 lg:w-3/5">
         <section>

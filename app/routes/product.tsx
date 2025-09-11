@@ -9,7 +9,7 @@ import ShopModal from "~/components/shop-modal";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Premium Syrup Products" },
+    { title: "Product | Premium Syrup" },
     { name: "description", content: "Premium Syrup Products by Category" },
   ];
 }
@@ -65,27 +65,18 @@ export default function Product() {
             </div>
           </div>
         </section>
-        <section className="mb-12 flex flex-col justify-between items-center lg:w-1/2 z-30">
+        <section className="my-12 flex flex-col justify-between items-center lg:w-1/2 z-30">
           <div className="py-4">
             <h1 className="mb-4 font-bold">DESCRIPTION</h1>
-            <p className="sm:text-2xl text-xl">
-              Premium® Grenadine delivers a refreshing balance of sweetness and
-              tanginess, enriched by the vibrant red hue and the fresh aroma of
-              pomegranate. Perfect for elevating your drinks with fruity depth
-              and a touch of elegance.
-            </p>
+            <p className="sm:text-lg text-sm">{productDetails?.description}</p>
           </div>
           <div className="border-y-4 py-4 w-full">
             <h1 className="mb-4 font-bold">VOLUME</h1>
-            <p className="sm:text-2xl text-xl">{productDetails?.volume}ml</p>
+            <p className="sm:text-lg text-sm">{productDetails?.volume}ml</p>
           </div>
           <div className="py-4 pb-12">
             <h1 className="mb-4 font-bold">INGREDIENTS</h1>
-            <p className="sm:text-2xl text-xl">
-              Granulated Sugar, Water, Acidity Regulator Citric Acid, Synthetic
-              Pomegranate Flavoring, Preservative Potassium Sorbate, Salt,
-              Synthetic Colorings (Ponceau 4R Cl 16255, Carmoisine Cl 14720)
-            </p>
+            <p className="sm:text-lg text-sm">{productDetails?.ingredients}</p>
           </div>
           <button
             onClick={handleShopNowClick}
